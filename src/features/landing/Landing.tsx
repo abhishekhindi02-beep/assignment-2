@@ -19,7 +19,7 @@ export default function Landing() {
       <main className="max-w-7xl mx-auto px-4 py-12 md:py-20 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div className="space-y-8">
           <div>
-            <h1 className="text-5xl md:text-7xl font-extrabold text-navy leading-tight tracking-tight">
+            <h1 className="text-5xl md:text-7xl font-extrabold text-slate-900 leading-tight tracking-tight">
               RELATIVITY <br /> <span className="text-violet-600">LAB</span>
             </h1>
             <p className="mt-4 text-xl md:text-2xl text-slate-600 font-light">
@@ -118,14 +118,14 @@ export default function Landing() {
               <div className="w-12 h-12 bg-amber-100 text-amber-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-amber-600 group-hover:text-white transition-colors">
                 <Clock className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-bold text-navy mb-2 group-hover:text-amber-700 transition-colors">6.3 Spacetime Diagrams</h3>
+              <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-amber-700 transition-colors">6.3 Spacetime Diagrams</h3>
               <p className="text-slate-600 mb-4">Master Minkowski spacetime diagrams, worldlines, light cones, and causality.</p>
             </Link>
           </div>
 
-          <div className="bg-navy text-white rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden">
+          <div className="bg-slate-900 text-white rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-violet-600 opacity-20 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2"></div>
-            <h3 className="text-2xl font-bold mb-6">Learning Objectives</h3>
+            <h3 className="text-2xl font-bold mb-6 text-white">Learning Objectives</h3>
             <ul className="space-y-4 relative z-10">
               <li className="flex items-center gap-3">
                 <div className="w-2 h-2 bg-violet-400 rounded-full"></div>

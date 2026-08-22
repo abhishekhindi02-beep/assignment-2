@@ -13,11 +13,22 @@ const defaultProgress: ProgressState = {
   startedAt: new Date().toISOString(),
 };
 
+function normalizeId(id?: string): string {
+  if (!id) return '';
+  const trimmed = id.trim();
+  return trimmed.startsWith('/') ? trimmed : `/${trimmed}`;
+}
+
 function loadProgress(): ProgressState {
   try {
     const stored = localStorage.getItem(STORAGE_KEY);
     if (stored) {
-      return { ...defaultProgress, ...JSON.parse(stored) };
+      const parsed = JSON.parse(stored);
+      // Normalize any existing stored lesson IDs
+      if (Array.isArray(parsed.completedLessons)) {
+        parsed.completedLessons = parsed.completedLessons.map((l: string) => normalizeId(l));
+      }
+      return { ...defaultProgress, ...parsed };
     }
   } catch { /* ignore */ }
   return { ...defaultProgress };
@@ -36,7 +47,8 @@ export function useProgress() {
     saveProgress(progress);
   }, [progress]);
 
-  const completeLesson = useCallback((id?: string) => {
+  const completeLesson = useCallback((rawId?: string) => {
+    const id = normalizeId(rawId);
     if (!id) return;
     setProgress(prev => {
       if (prev.completedLessons.includes(id)) return prev;
@@ -81,11 +93,14 @@ export function useProgress() {
 
   const resetProgress = useCallback(() => {
     setProgress({ ...defaultProgress, startedAt: new Date().toISOString() });
+    try {
+      localStorage.removeItem(STORAGE_KEY);
+    } catch { /* ignore */ }
   }, []);
 
   const totalLessons = 14;
-  const completedCount = progress.completedLessons.length;
-  const progressPercent = Math.round((completedCount / totalLessons) * 100);
+  const completedCount = Math.min(progress.completedLessons.length, totalLessons);
+  const progressPercent = Math.min(100, Math.round((completedCount / totalLessons) * 100));
 
   return {
     progress,
@@ -101,7 +116,7 @@ export function useProgress() {
     completedCount,
     totalLessons,
     progressPercent,
-    isLessonComplete: (id: string) => progress.completedLessons.includes(id),
+    isLessonComplete: (rawId: string) => progress.completedLessons.includes(normalizeId(rawId)),
     isQuizComplete: (id: string) => progress.completedQuizzes.includes(id),
   };
 }

@@ -228,7 +228,7 @@ export default function RelativityLabPage() {
       </div>
 
       <div className="mt-12">
-        <h3 className="text-2xl font-bold mb-6 text-navy-900">SLAC Micro-Experiment</h3>
+        <h3 className="text-2xl font-bold mb-6 text-slate-900">SLAC Micro-Experiment</h3>
         <p className="mb-6">
           At the Stanford Linear Accelerator Center (SLAC), electrons are accelerated down a 3.0 km long tube. 
           Use the lab tools above or solve this real-world problem step by step.

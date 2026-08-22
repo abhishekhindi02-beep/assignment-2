@@ -80,14 +80,14 @@ export default function ReferenceFrames() {
 
         {/* Inertial vs Non-Inertial */}
         <section className="space-y-6">
-          <h2 className="text-2xl font-bold text-navy border-b border-slate-200 pb-2">Inertial Reference Frames</h2>
+          <h2 className="text-2xl font-bold text-slate-900 border-b border-slate-200 pb-2">Inertial Reference Frames</h2>
           <p className="text-slate-700 leading-relaxed">
             An <strong>inertial reference frame</strong> is one where Newton's First Law holds true: an object at rest stays at rest, and an object in motion stays in motion with a constant velocity, unless acted upon by a net external force. Simply put, an inertial frame is <em>not accelerating</em>.
           </p>
           
           {/* Classifier Interactive */}
           <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 md:p-8">
-            <h3 className="text-lg font-bold text-navy mb-4">Interactive: Inertial Frame Classifier</h3>
+            <h3 className="text-lg font-bold text-slate-900 mb-4">Interactive: Inertial Frame Classifier</h3>
             
             {!classifierFinished ? (
               <div className="space-y-6">
@@ -123,9 +123,9 @@ export default function ReferenceFrames() {
                     <p className="text-slate-700 text-sm mb-4">{feedback.text}</p>
                     <button 
                       onClick={nextScenario}
-                      className="bg-navy text-white px-6 py-2 rounded-lg font-medium text-sm hover:bg-slate-800 transition-colors"
+                      className="bg-violet-600 hover:bg-violet-700 text-white font-bold px-6 py-2.5 rounded-xl shadow-md transition-all cursor-pointer text-sm"
                     >
-                      Next Scenario
+                      Next Scenario →
                     </button>
                   </div>
                 )}

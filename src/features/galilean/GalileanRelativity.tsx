@@ -68,7 +68,7 @@ export default function GalileanRelativity() {
 
         {/* Interactive Train Experiment */}
         <section className="space-y-6">
-          <h2 className="text-2xl font-bold text-navy border-b border-slate-200 pb-2">Interactive: The Moving Train</h2>
+          <h2 className="text-2xl font-bold text-slate-900 border-b border-slate-200 pb-2">Interactive: The Moving Train</h2>
           <p className="text-slate-700">
             A passenger throws a ball forward inside a moving train. Adjust the train's speed (<InlineMath math="v" />) and the throw speed (<InlineMath math="u'" />).
           </p>
@@ -149,7 +149,7 @@ export default function GalileanRelativity() {
                 <div className="text-3xl font-mono text-slate-300">v = {v} <span className="text-lg">m/s</span></div>
               </div>
               <div className="text-2xl text-slate-500 font-light">=</div>
-              <div className="text-center bg-navy px-6 py-3 rounded-xl shadow-lg border border-slate-600">
+              <div className="text-center bg-slate-900 px-6 py-3 rounded-xl shadow-lg border border-slate-700">
                 <div className="text-emerald-400 text-sm font-bold uppercase tracking-wide mb-1">Ground Observer Measures</div>
                 <div className="text-4xl font-mono text-white text-shadow">u = {u} <span className="text-xl">m/s</span></div>
               </div>
@@ -182,10 +182,11 @@ export default function GalileanRelativity() {
               In the late 19th century, scientists measured the speed of light from moving sources (like stars and the moving Earth). They found that the ground observer <em>always</em> measures exactly <strong>c</strong>, never 1.8c. 
             </CalloutCard>
 
-            <div className="mt-8 text-center relative z-10">
-              <span className="inline-block bg-red-600 text-white font-black text-xl px-8 py-4 rounded-xl shadow-lg transform -rotate-1">
-                Something fundamental has to change.
-              </span>
+            <div className="mt-8 p-6 bg-red-600 text-white rounded-2xl shadow-lg text-center relative z-10">
+              <h4 className="text-2xl font-black mb-2">Something fundamental has to change.</h4>
+              <p className="text-red-100 text-base max-w-xl mx-auto">
+                If the speed of light is invariant in all frames, our assumption that time is absolute (<InlineMath math="t' = t" />) must be wrong. Proceed to the next section to explore Einstein's Postulates.
+              </p>
             </div>
           </div>
         </section>
