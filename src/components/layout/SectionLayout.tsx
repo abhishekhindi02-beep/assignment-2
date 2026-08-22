@@ -40,28 +40,35 @@ export function SectionWrapper({ children, prev, next }: SectionWrapperProps) {
   const prevTarget = prev?.to || prev?.path || '';
   const nextTarget = next?.to || next?.path || '';
 
+  const handleNavClick = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
       {children}
       
       {(prev || next) && (
-        <div className="flex items-center justify-between mt-16 pt-8 border-t border-slate-200">
+        <div className="flex flex-col sm:flex-row items-center justify-between mt-16 pt-8 border-t border-slate-200 gap-4">
           {prev && prevTarget ? (
             <Link
               to={prevTarget}
-              className="inline-flex items-center gap-2 text-sm text-slate-600 hover:text-slate-800 font-medium transition-colors group"
+              onClick={handleNavClick}
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-slate-200 text-sm font-medium text-slate-700 hover:text-navy-900 hover:bg-slate-100 transition-all group w-full sm:w-auto justify-center"
             >
-              <ArrowLeft size={16} className="group-hover:-translate-x-0.5 transition-transform" />
-              {prev.label}
+              <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform text-slate-500 group-hover:text-navy-900" />
+              <span>{prev.label}</span>
             </Link>
           ) : <div />}
+
           {next && nextTarget ? (
             <Link
               to={nextTarget}
-              className="inline-flex items-center gap-2 text-sm text-violet-700 hover:text-violet-900 font-semibold transition-colors group"
+              onClick={handleNavClick}
+              className="inline-flex items-center gap-2.5 px-6 py-3 rounded-xl bg-violet-600 text-white text-sm font-bold shadow-md shadow-violet-200 hover:bg-violet-700 hover:shadow-lg hover:shadow-violet-300 transition-all hover:scale-[1.02] active:scale-[0.98] group w-full sm:w-auto justify-center"
             >
-              {next.label}
-              <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
+              <span>{next.label}</span>
+              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </Link>
           ) : <div />}
         </div>
