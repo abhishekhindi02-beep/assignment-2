@@ -81,7 +81,10 @@ export default function Simultaneity() {
   const lightRadiusTrainB = time > strikeTimeTrainB ? (time - strikeTimeTrainB) * c : 0;
 
   return (
-    <SectionWrapper>
+    <SectionWrapper
+      prev={{ to: '/velocity-addition', label: '07 Velocity Addition' }}
+      next={{ to: '/muon-decay', label: '09 Muon Decay' }}
+    >
       <SectionHeader 
         title="6.2 — Relativity of Simultaneity" 
         subtitle="Events simultaneous in one frame may not be simultaneous in another"
@@ -344,17 +347,6 @@ export default function Simultaneity() {
               { id: "d", text: "It depends on the exact speed of the spaceship.", isCorrect: false, explanation: "The specific time difference depends on the speed, but the order of events does not (as long as v > 0)." }
             ]}
           />
-        </div>
-
-        <div className="flex justify-between items-center mt-12 pt-6 border-t border-slate-200">
-          <Link to="/velocity-addition" className="flex items-center text-slate-600 hover:text-violet-600 transition-colors font-medium">
-            <ArrowLeft className="w-5 h-5 mr-2" />
-            Velocity Addition
-          </Link>
-          <Link to="/muon-decay" className="flex items-center text-slate-600 hover:text-violet-600 transition-colors font-medium">
-            Muon Decay
-            <ArrowRight className="w-5 h-5 ml-2" />
-          </Link>
         </div>
       </div>
     </SectionWrapper>

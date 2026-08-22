@@ -35,7 +35,10 @@ export default function EinsteinsPostulates() {
   const currentGammaY = 100 - (Math.min(currentGamma, 25) / 25) * 100;
 
   return (
-    <SectionWrapper>
+    <SectionWrapper
+      prev={{ to: '/galilean-relativity', label: '02 Galilean Relativity' }}
+      next={{ to: '/lorentz-transformations', label: '04 Lorentz Transformations' }}
+    >
       <SectionHeader title="6.1 — Einstein's Postulates" />
 
       <div className="grid md:grid-cols-2 gap-6 mb-8">
@@ -210,18 +213,6 @@ export default function EinsteinsPostulates() {
             Remember that <InlineMath math="\gamma \geq 1" /> always! If you ever calculate a gamma factor less than 1, you've made a mistake (usually flipping the minus sign or the fraction). At everyday speeds, <InlineMath math="\gamma \approx 1" />.
           </p>
         </div>
-      </div>
-
-      <div className="flex justify-between items-center mt-12 pt-6 border-t border-slate-200">
-        <Link to="/galilean" className="flex items-center gap-2 text-slate-600 hover:text-navy-600 font-medium">
-          <ChevronLeft size={20} /> Galilean Relativity
-        </Link>
-        <button onClick={() => markComplete('/einsteins-postulates')} className="bg-emerald-100 text-emerald-700 px-4 py-2 rounded-lg font-medium hover:bg-emerald-200 transition-colors">
-          Mark Complete
-        </button>
-        <Link to="/lorentz" className="flex items-center gap-2 text-slate-600 hover:text-navy-600 font-medium">
-          Lorentz Transformations <ChevronRight size={20} />
-        </Link>
       </div>
 
     </SectionWrapper>

@@ -45,7 +45,10 @@ export default function LorentzTransformations() {
   const intervalType = classifyInterval(intT, intX);
 
   return (
-    <SectionWrapper>
+    <SectionWrapper
+      prev={{ to: '/einsteins-postulates', label: "03 Einstein's Postulates" }}
+      next={{ to: '/time-dilation', label: '05 Time Dilation' }}
+    >
       <SectionHeader title="6.1 — Lorentz Transformations" />
 
       <p className="text-lg text-slate-700 mb-6">
@@ -260,17 +263,6 @@ export default function LorentzTransformations() {
         />
       </div>
 
-      <div className="flex justify-between items-center mt-12 pt-6 border-t border-slate-200">
-        <Link to="/postulates" className="flex items-center gap-2 text-slate-600 hover:text-navy-600 font-medium">
-          <ChevronLeft size={20} /> Einstein's Postulates
-        </Link>
-        <button onClick={() => markComplete('/lorentz-transformations')} className="bg-emerald-100 text-emerald-700 px-4 py-2 rounded-lg font-medium hover:bg-emerald-200 transition-colors">
-          Mark Complete
-        </button>
-        <Link to="/time-dilation" className="flex items-center gap-2 text-slate-600 hover:text-navy-600 font-medium">
-          Time Dilation <ChevronRight size={20} />
-        </Link>
-      </div>
     </SectionWrapper>
   );
 }

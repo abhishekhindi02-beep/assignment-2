@@ -34,7 +34,10 @@ export default function MuonDecay() {
   const reachesSurfaceMuon = contractedDistance <= muonTravelDistance;
 
   return (
-    <SectionWrapper>
+    <SectionWrapper
+      prev={{ to: '/simultaneity', label: '08 Simultaneity' }}
+      next={{ to: '/spacetime-diagrams', label: '10 Spacetime Diagrams' }}
+    >
       <SectionHeader 
         title="6.2 — The Muon Paradox" 
         subtitle="How do muons reach Earth if they should decay first?"
@@ -192,17 +195,6 @@ export default function MuonDecay() {
           explanation="At 0.95c, γ = 3.20. In the muon's frame, the Earth's atmosphere is moving, so it undergoes length contraction. L = L₀ / γ = 5 km / 3.20 = 1.56 km."
           onCorrect={() => markComplete('muon-decay')}
         />
-      </div>
-
-      <div className="mt-12 flex justify-between">
-        <Link to="/simultaneity" className="text-blue-600 hover:text-blue-800 font-medium flex items-center gap-2">
-          <MoveRight className="w-4 h-4 rotate-180" />
-          Previous: Relativity of Simultaneity
-        </Link>
-        <Link to="/spacetime-diagrams" className="text-blue-600 hover:text-blue-800 font-medium flex items-center gap-2">
-          Next: Spacetime Diagrams
-          <ArrowRight className="w-4 h-4" />
-        </Link>
       </div>
     </SectionWrapper>
   );

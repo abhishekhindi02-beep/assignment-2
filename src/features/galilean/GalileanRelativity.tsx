@@ -29,7 +29,10 @@ export default function GalileanRelativity() {
   };
 
   return (
-    <SectionWrapper>
+    <SectionWrapper
+      prev={{ to: '/reference-frames', label: '01 Reference Frames' }}
+      next={{ to: '/einsteins-postulates', label: "03 Einstein's Postulates" }}
+    >
       <SectionHeader title="6.1 — Galilean Relativity" />
 
       <div className="max-w-3xl mx-auto space-y-12">
@@ -200,17 +203,6 @@ export default function GalileanRelativity() {
             onCorrect={handleQuizCorrect}
           />
         </section>
-
-        {/* Navigation */}
-        <div className="flex flex-col sm:flex-row justify-between items-center pt-8 mt-12 border-t border-slate-200 gap-4">
-          <Link to="/reference-frames" className="flex items-center gap-2 text-slate-500 hover:text-navy transition-colors font-medium w-full sm:w-auto justify-center">
-            <ArrowLeft className="w-4 h-4" /> Back: Reference Frames
-          </Link>
-          <Link to="/einstein-postulates" className="flex items-center gap-2 bg-violet-600 text-white px-8 py-4 rounded-full hover:bg-violet-700 transition-transform hover:scale-105 active:scale-95 font-bold shadow-lg shadow-violet-200 w-full sm:w-auto justify-center">
-            Next: Einstein's Postulates <ArrowRight className="w-5 h-5" />
-          </Link>
-        </div>
-
       </div>
     </SectionWrapper>
   );

@@ -59,7 +59,10 @@ export default function ReferenceFrames() {
   };
 
   return (
-    <SectionWrapper>
+    <SectionWrapper
+      prev={{ to: '/', label: 'Landing Page' }}
+      next={{ to: '/galilean-relativity', label: '02 Galilean Relativity' }}
+    >
       <SectionHeader title="6.1 — Reference Frames" />
       
       <div className="max-w-3xl mx-auto space-y-12">
@@ -212,17 +215,6 @@ export default function ReferenceFrames() {
         <CalloutCard type="tip" title="Exam Tip: The Rest Frame">
           Always identify the "rest frame" or "proper frame" first. This is the reference frame where the object of interest is stationary. Many relativistic paradoxes are solved simply by clearly defining who is measuring what.
         </CalloutCard>
-
-        {/* Navigation */}
-        <div className="flex justify-between items-center pt-8 mt-12 border-t border-slate-200">
-          <Link to="/" className="flex items-center gap-2 text-slate-500 hover:text-navy transition-colors font-medium">
-            <ArrowLeft className="w-4 h-4" /> Back to Home
-          </Link>
-          <Link to="/galilean-relativity" className="flex items-center gap-2 bg-navy text-white px-6 py-3 rounded-full hover:bg-slate-800 transition-colors font-bold shadow-md">
-            Next: Galilean Relativity <ArrowRight className="w-4 h-4" />
-          </Link>
-        </div>
-
       </div>
     </SectionWrapper>
   );

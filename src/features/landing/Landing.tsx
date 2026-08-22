@@ -15,14 +15,6 @@ export default function Landing() {
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 font-sans">
-      {/* Header / Sidebar toggle */}
-      <header className="p-4 flex items-center justify-between max-w-7xl mx-auto">
-        <button className="p-2 rounded hover:bg-slate-200 transition-colors" aria-label="Toggle Sidebar">
-          <Menu className="w-6 h-6 text-slate-700" />
-        </button>
-        <div className="font-bold tracking-widest text-navy">RELATIVITY LAB</div>
-      </header>
-
       {/* Hero Section */}
       <main className="max-w-7xl mx-auto px-4 py-12 md:py-20 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div className="space-y-8">
@@ -104,31 +96,31 @@ export default function Landing() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
             {/* Chapter 6.1 */}
-            <div className="bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:shadow-lg transition-shadow">
-              <div className="w-12 h-12 bg-violet-100 text-violet-600 rounded-xl flex items-center justify-center mb-6">
+            <Link to="/reference-frames" className="bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:shadow-lg transition-all hover:-translate-y-1 block group">
+              <div className="w-12 h-12 bg-violet-100 text-violet-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-violet-600 group-hover:text-white transition-colors">
                 <BookOpen className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-bold text-navy mb-2">6.1 Reference Frames</h3>
-              <p className="text-slate-600 mb-4">Understand observers, coordinate systems, and Galilean transformation basics.</p>
-            </div>
+              <h3 className="text-xl font-bold text-navy mb-2 group-hover:text-violet-700 transition-colors">6.1 Reference Frames & Lorentz</h3>
+              <p className="text-slate-600 mb-4">Understand observers, coordinate systems, Galilean limits, and Lorentz transformations.</p>
+            </Link>
 
             {/* Chapter 6.2 */}
-            <div className="bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:shadow-lg transition-shadow">
-              <div className="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center mb-6">
+            <Link to="/time-dilation" className="bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:shadow-lg transition-all hover:-translate-y-1 block group">
+              <div className="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
                 <Activity className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-bold text-navy mb-2">6.2 Postulates of SR</h3>
-              <p className="text-slate-600 mb-4">Discover Einstein's two postulates and the breakdown of absolute time.</p>
-            </div>
+              <h3 className="text-xl font-bold text-navy mb-2 group-hover:text-emerald-700 transition-colors">6.2 Relativistic Effects</h3>
+              <p className="text-slate-600 mb-4">Explore time dilation, proper time, length contraction, velocity addition, and muon decay.</p>
+            </Link>
 
             {/* Chapter 6.3 */}
-            <div className="bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:shadow-lg transition-shadow">
-              <div className="w-12 h-12 bg-amber-100 text-amber-600 rounded-xl flex items-center justify-center mb-6">
+            <Link to="/spacetime-diagrams" className="bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:shadow-lg transition-all hover:-translate-y-1 block group">
+              <div className="w-12 h-12 bg-amber-100 text-amber-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-amber-600 group-hover:text-white transition-colors">
                 <Clock className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-bold text-navy mb-2">6.3 Time & Length</h3>
-              <p className="text-slate-600 mb-4">Calculate time dilation and length contraction using the Lorentz factor.</p>
-            </div>
+              <h3 className="text-xl font-bold text-navy mb-2 group-hover:text-amber-700 transition-colors">6.3 Spacetime Diagrams</h3>
+              <p className="text-slate-600 mb-4">Master Minkowski spacetime diagrams, worldlines, light cones, and causality.</p>
+            </Link>
           </div>
 
           <div className="bg-navy text-white rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden">

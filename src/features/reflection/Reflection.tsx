@@ -62,7 +62,9 @@ export const Reflection: React.FC = () => {
   const readyCount = objectives.filter(o => o.status === 'Ready to move on').length;
 
   return (
-    <SectionWrapper>
+    <SectionWrapper
+      prev={{ to: '/final-challenge', label: '14 Final Challenge' }}
+    >
       <SectionHeader title="Chapter Reflection" subtitle="Assess your understanding of Special Relativity" />
 
       <CalloutCard type="info" title="Progress Summary">

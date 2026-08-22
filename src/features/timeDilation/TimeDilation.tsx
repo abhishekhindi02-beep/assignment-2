@@ -49,8 +49,8 @@ export default function TimeDilation() {
 
   return (
     <SectionWrapper
-      prev={{ to: '/lorentz', label: 'Lorentz Transformations' }}
-      next={{ to: '/length-contraction', label: 'Length Contraction' }}
+      prev={{ to: '/lorentz-transformations', label: '04 Lorentz Transforms' }}
+      next={{ to: '/length-contraction', label: '06 Length Contraction' }}
     >
       <SectionHeader
         section="6.2"

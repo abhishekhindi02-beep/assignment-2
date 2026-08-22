@@ -44,7 +44,10 @@ export default function RelativityLabPage() {
   };
 
   return (
-    <SectionWrapper>
+    <SectionWrapper
+      prev={{ to: '/worldlines', label: '12 Worldlines' }}
+      next={{ to: '/final-challenge', label: '14 Final Challenge' }}
+    >
       <SectionHeader 
         title="Relativity Lab" 
         subtitle="Change the observer. Change the measurement. Discover what stays invariant."
@@ -279,17 +282,6 @@ export default function RelativityLabPage() {
             ]}
           />
         </div>
-      </div>
-
-      <div className="mt-12 flex justify-between">
-        <Link to="/worldlines" className="text-blue-600 hover:text-blue-800 font-medium flex items-center gap-2">
-          <MoveRight className="w-4 h-4 rotate-180" />
-          Previous: Worldlines
-        </Link>
-        <Link to="/final-challenge" className="text-blue-600 hover:text-blue-800 font-medium flex items-center gap-2">
-          Next: Final Challenge
-          <ArrowRight className="w-4 h-4" />
-        </Link>
       </div>
     </SectionWrapper>
   );

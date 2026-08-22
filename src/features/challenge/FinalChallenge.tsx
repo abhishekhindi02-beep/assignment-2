@@ -91,7 +91,10 @@ export const FinalChallenge: React.FC = () => {
   ];
 
   return (
-    <SectionWrapper>
+    <SectionWrapper
+      prev={{ to: '/relativity-lab', label: '13 Relativity Lab' }}
+      next={{ to: '/reflection', label: 'Reflection & Review' }}
+    >
       <SectionHeader title="The Relativity Mission" subtitle="Prove your mastery of Special Relativity" />
       
       <div className="prose max-w-none text-slate-800 mb-8">

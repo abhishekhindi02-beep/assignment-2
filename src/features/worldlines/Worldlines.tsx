@@ -24,7 +24,10 @@ export const Worldlines: React.FC = () => {
   };
 
   return (
-    <SectionWrapper>
+    <SectionWrapper
+      prev={{ to: '/light-cones', label: '11 Light Cones' }}
+      next={{ to: '/relativity-lab', label: '13 Relativity Lab' }}
+    >
       <SectionHeader title="6.3 — Worldlines & Events" />
       
       <div className="prose max-w-none text-slate-800 mb-8">
@@ -123,14 +126,6 @@ export const Worldlines: React.FC = () => {
           correctIndex={1}
           explanation="In a spacetime diagram where space and time are plotted with the same scale (x and ct), a photon travels exactly 1 unit of space for every 1 unit of time, creating a 45-degree line."
         />
-      </div>
-      
-      <div className="mt-8">
-         {/* Navigation would go here, mock representation */}
-         <div className="flex justify-between">
-           <a href="#" className="text-blue-600">← Prev: Light Cones</a>
-           <a href="#" className="text-blue-600">Next: Relativity Lab →</a>
-         </div>
       </div>
     </SectionWrapper>
   );

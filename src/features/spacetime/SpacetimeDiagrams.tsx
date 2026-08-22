@@ -75,8 +75,8 @@ export default function SpacetimeDiagrams() {
 
   return (
     <SectionWrapper
-      prev={{ path: "/muon-decay", label: "Muon Decay" }}
-      next={{ path: "/light-cones", label: "Light Cones" }}
+      prev={{ to: "/muon-decay", label: "09 Muon Decay" }}
+      next={{ to: "/light-cones", label: "11 Light Cones" }}
     >
       <SectionHeader title="6.3 — Spacetime Diagrams" subtitle="Visualizing Events and Worldlines" />
 

@@ -54,7 +54,10 @@ export default function VelocityAddition() {
   }, [markSectionComplete]);
 
   return (
-    <SectionWrapper>
+    <SectionWrapper
+      prev={{ to: '/length-contraction', label: '06 Length Contraction' }}
+      next={{ to: '/simultaneity', label: '08 Simultaneity' }}
+    >
       <SectionHeader 
         title="6.2 — Relativistic Velocity Addition" 
         subtitle="Why nothing can travel faster than light"
@@ -260,17 +263,6 @@ export default function VelocityAddition() {
               { id: "d", text: "0.77c", isCorrect: false, explanation: "Applying the velocity addition formula with u' = c gives exactly c." }
             ]}
           />
-        </div>
-
-        <div className="flex justify-between items-center mt-12 pt-6 border-t border-slate-200">
-          <Link to="/length-contraction" className="flex items-center text-slate-600 hover:text-violet-600 transition-colors font-medium">
-            <ArrowLeft className="w-5 h-5 mr-2" />
-            Length Contraction
-          </Link>
-          <Link to="/simultaneity" className="flex items-center text-slate-600 hover:text-violet-600 transition-colors font-medium">
-            Simultaneity
-            <ArrowRight className="w-5 h-5 ml-2" />
-          </Link>
         </div>
       </div>
     </SectionWrapper>

@@ -59,8 +59,8 @@ export default function LightCones() {
 
   return (
     <SectionWrapper
-      prev={{ path: "/spacetime-diagrams", label: "Spacetime Diagrams" }}
-      next={{ path: "/worldlines", label: "Worldlines" }}
+      prev={{ to: "/spacetime-diagrams", label: "10 Spacetime Diagrams" }}
+      next={{ to: "/worldlines", label: "12 Worldlines" }}
     >
       <SectionHeader title="6.3 — Light Cones & Causality" subtitle="The Structure of Spacetime" />
 
