@@ -2,7 +2,7 @@ import { NavLink, useLocation } from 'react-router-dom';
 import { 
   Atom, ArrowRightLeft, Zap, Clock, Ruler, Gauge, Split, 
   Orbit, LayoutGrid, Sun, GitBranch, Beaker, Trophy, BookOpen,
-  ChevronLeft, X, BarChart3
+  ChevronLeft, X, BarChart3, RotateCcw
 } from 'lucide-react';
 import { useProgress } from '@/hooks/useProgress';
 
@@ -30,7 +30,7 @@ interface SidebarProps {
 
 export function Sidebar({ isOpen, onClose }: SidebarProps) {
   const location = useLocation();
-  const { isLessonComplete, progressPercent, completedCount, totalLessons } = useProgress();
+  const { isLessonComplete, progressPercent, completedCount, totalLessons, resetProgress } = useProgress();
 
   return (
     <>
@@ -71,8 +71,19 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
           {/* Progress bar */}
           <div className="mt-4">
             <div className="flex items-center justify-between text-xs text-navy-400 mb-1.5">
-              <span>Progress</span>
-              <span className="font-mono">{completedCount}/{totalLessons}</span>
+              <span className="font-semibold text-slate-300">Progress</span>
+              <div className="flex items-center gap-2">
+                <span className="font-mono text-violet-300 font-bold">{completedCount}/{totalLessons}</span>
+                {completedCount > 0 && (
+                  <button
+                    onClick={resetProgress}
+                    className="p-1 rounded text-slate-400 hover:text-white hover:bg-navy-800 transition-colors cursor-pointer"
+                    title="Reset All Progress to 0"
+                  >
+                    <RotateCcw size={12} />
+                  </button>
+                )}
+              </div>
             </div>
             <div className="h-1.5 bg-navy-800 rounded-full overflow-hidden">
               <div
