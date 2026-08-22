@@ -1,4 +1,5 @@
 import { HashRouter, Routes, Route } from 'react-router-dom';
+import { ProgressProvider } from '@/context/ProgressContext';
 import { AppShell } from '@/components/layout/AppShell';
 import Landing from '@/features/landing/Landing';
 import ReferenceFrames from '@/features/referenceFrames/ReferenceFrames';
@@ -19,28 +20,30 @@ import Reflection from '@/features/reflection/Reflection';
 
 function App() {
   return (
-    <HashRouter>
-      <AppShell>
-        <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route path="/reference-frames" element={<ReferenceFrames />} />
-          <Route path="/galilean-relativity" element={<GalileanRelativity />} />
-          <Route path="/einsteins-postulates" element={<EinsteinsPostulates />} />
-          <Route path="/lorentz-transformations" element={<LorentzTransformations />} />
-          <Route path="/time-dilation" element={<TimeDilation />} />
-          <Route path="/length-contraction" element={<LengthContraction />} />
-          <Route path="/velocity-addition" element={<VelocityAddition />} />
-          <Route path="/simultaneity" element={<Simultaneity />} />
-          <Route path="/muon-decay" element={<MuonDecay />} />
-          <Route path="/spacetime-diagrams" element={<SpacetimeDiagrams />} />
-          <Route path="/light-cones" element={<LightCones />} />
-          <Route path="/worldlines" element={<Worldlines />} />
-          <Route path="/relativity-lab" element={<RelativityLabPage />} />
-          <Route path="/final-challenge" element={<FinalChallenge />} />
-          <Route path="/reflection" element={<Reflection />} />
-        </Routes>
-      </AppShell>
-    </HashRouter>
+    <ProgressProvider>
+      <HashRouter>
+        <AppShell>
+          <Routes>
+            <Route path="/" element={<Landing />} />
+            <Route path="/reference-frames" element={<ReferenceFrames />} />
+            <Route path="/galilean-relativity" element={<GalileanRelativity />} />
+            <Route path="/einsteins-postulates" element={<EinsteinsPostulates />} />
+            <Route path="/lorentz-transformations" element={<LorentzTransformations />} />
+            <Route path="/time-dilation" element={<TimeDilation />} />
+            <Route path="/length-contraction" element={<LengthContraction />} />
+            <Route path="/velocity-addition" element={<VelocityAddition />} />
+            <Route path="/simultaneity" element={<Simultaneity />} />
+            <Route path="/muon-decay" element={<MuonDecay />} />
+            <Route path="/spacetime-diagrams" element={<SpacetimeDiagrams />} />
+            <Route path="/light-cones" element={<LightCones />} />
+            <Route path="/worldlines" element={<Worldlines />} />
+            <Route path="/relativity-lab" element={<RelativityLabPage />} />
+            <Route path="/final-challenge" element={<FinalChallenge />} />
+            <Route path="/reflection" element={<Reflection />} />
+          </Routes>
+        </AppShell>
+      </HashRouter>
+    </ProgressProvider>
   );
 }
 
