@@ -1,7 +1,8 @@
-import { useState, type ReactNode } from 'react';
+import { useState, useEffect, type ReactNode } from 'react';
 import { Menu } from 'lucide-react';
 import { Sidebar } from './Sidebar';
 import { useLocation } from 'react-router-dom';
+import { useProgress } from '@/hooks/useProgress';
 
 interface AppShellProps {
   children: ReactNode;
@@ -10,7 +11,14 @@ interface AppShellProps {
 export function AppShell({ children }: AppShellProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const location = useLocation();
+  const { markComplete } = useProgress();
   const isLanding = location.pathname === '/';
+
+  useEffect(() => {
+    if (location.pathname && location.pathname !== '/') {
+      markComplete(location.pathname);
+    }
+  }, [location.pathname, markComplete]);
 
   return (
     <div className="min-h-screen bg-slate-50">
