@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import { AppShell } from '@/components/layout/AppShell';
 import Landing from '@/features/landing/Landing';
 import ReferenceFrames from '@/features/referenceFrames/ReferenceFrames';
@@ -19,7 +19,7 @@ import Reflection from '@/features/reflection/Reflection';
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <AppShell>
         <Routes>
           <Route path="/" element={<Landing />} />
@@ -40,7 +40,7 @@ function App() {
           <Route path="/reflection" element={<Reflection />} />
         </Routes>
       </AppShell>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
