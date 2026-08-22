@@ -20,7 +20,7 @@ export function QuizCard({ question, options: rawOptions, explanation: globalExp
     }
     return {
       text: opt.text || opt.label || String(opt),
-      isCorrect: opt.isCorrect ?? (correctIndex !== undefined ? i === correctIndex : false),
+      isCorrect: opt.isCorrect ?? opt.correct ?? (correctIndex !== undefined ? i === correctIndex : false),
       explanation: opt.explanation || '',
     };
   });

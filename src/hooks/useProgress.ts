@@ -24,9 +24,11 @@ function loadProgress(): ProgressState {
     const stored = localStorage.getItem(STORAGE_KEY);
     if (stored) {
       const parsed = JSON.parse(stored);
-      // Normalize any existing stored lesson IDs
       if (Array.isArray(parsed.completedLessons)) {
-        parsed.completedLessons = parsed.completedLessons.map((l: string) => normalizeId(l));
+        // Deduplicate and normalize
+        parsed.completedLessons = Array.from(
+          new Set(parsed.completedLessons.map((l: string) => normalizeId(l)).filter(Boolean))
+        );
       }
       return { ...defaultProgress, ...parsed };
     }
@@ -51,8 +53,9 @@ export function useProgress() {
     const id = normalizeId(rawId);
     if (!id) return;
     setProgress(prev => {
-      if (prev.completedLessons.includes(id)) return prev;
-      return { ...prev, completedLessons: [...prev.completedLessons, id] };
+      const current = prev.completedLessons.map(normalizeId);
+      if (current.includes(id)) return prev;
+      return { ...prev, completedLessons: Array.from(new Set([...current, id])) };
     });
   }, []);
 
@@ -99,7 +102,8 @@ export function useProgress() {
   }, []);
 
   const totalLessons = 14;
-  const completedCount = Math.min(progress.completedLessons.length, totalLessons);
+  const uniqueLessons = Array.from(new Set(progress.completedLessons.map(normalizeId).filter(Boolean)));
+  const completedCount = Math.min(uniqueLessons.length, totalLessons);
   const progressPercent = Math.min(100, Math.round((completedCount / totalLessons) * 100));
 
   return {
@@ -116,7 +120,7 @@ export function useProgress() {
     completedCount,
     totalLessons,
     progressPercent,
-    isLessonComplete: (rawId: string) => progress.completedLessons.includes(normalizeId(rawId)),
+    isLessonComplete: (rawId: string) => uniqueLessons.includes(normalizeId(rawId)),
     isQuizComplete: (id: string) => progress.completedQuizzes.includes(id),
   };
 }
