@@ -31,19 +31,17 @@ export const HomeView = ({ onNavigate }) => {
 
   return (
     <div className="space-y-8 animate-fadeIn max-w-5xl mx-auto">
-      <div className="p-8 rounded-3xl glass-panel border border-cyan-500/40 bg-gradient-to-br from-slate-950 via-slate-900 to-cyan-950/40 shadow-2xl relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
-
+      <div className="p-8 rounded-3xl bg-white border border-sky-200 shadow-xs relative overflow-hidden">
         <div className="max-w-2xl space-y-4 relative">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-bold uppercase tracking-wider">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-50 border border-sky-200 text-sky-700 text-xs font-semibold uppercase tracking-wider">
             <Sparkles className="w-3.5 h-3.5" /> Interactive Physics Web Module
           </div>
 
-          <h1 className="text-4xl sm:text-5xl font-black text-slate-100 tracking-tight leading-tight">
+          <h1 className="text-4xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight">
             MOTION IS A STORY.
           </h1>
 
-          <p className="text-slate-300 text-sm leading-relaxed font-medium">
+          <p className="text-slate-700 text-sm leading-relaxed font-medium">
             An object's position changes. Its velocity tells us how. Its acceleration tells us how velocity changes. Graphs let us see the entire story.
           </p>
 
@@ -53,12 +51,12 @@ export const HomeView = ({ onNavigate }) => {
                 markSectionComplete('intro');
                 onNavigate('position');
               }}
-              className="px-6 py-3 rounded-2xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-extrabold text-xs uppercase tracking-wider flex items-center gap-2 shadow-xl shadow-cyan-500/20 active:scale-95 transition-all"
+              className="px-6 py-3 rounded-2xl bg-sky-600 hover:bg-sky-700 text-white font-extrabold text-xs uppercase tracking-wider flex items-center gap-2 shadow-xs active:scale-95 transition-all"
             >
               Enter Motion Studio <ArrowRight className="w-4 h-4" />
             </button>
 
-            <span className="text-xs text-slate-400 font-mono">
+            <span className="text-xs text-slate-500 font-medium">
               Tagline: "See motion. Measure motion. Understand motion."
             </span>
           </div>
@@ -66,44 +64,44 @@ export const HomeView = ({ onNavigate }) => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="p-6 rounded-2xl glass-panel border border-slate-800 bg-slate-900/80 space-y-3">
-          <h3 className="text-base font-bold text-slate-100 flex items-center gap-2">
-            <BookOpen className="w-5 h-5 text-cyan-400" /> Learning Objectives
+        <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-xs space-y-3">
+          <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+            <BookOpen className="w-5 h-5 text-sky-600" /> Learning Objectives
           </h3>
-          <ul className="space-y-2 text-xs text-slate-300 leading-relaxed">
+          <ul className="space-y-2 text-xs text-slate-700 leading-relaxed font-medium">
             <li className="flex items-start gap-2">
-              <span className="text-cyan-400 font-bold">•</span> Distinguish displacement vs distance and speed vs velocity.
+              <span className="text-sky-600 font-bold">•</span> Distinguish displacement vs distance and speed vs velocity.
             </li>
             <li className="flex items-start gap-2">
-              <span className="text-cyan-400 font-bold">•</span> Define instantaneous velocity and acceleration as derivatives (gradients).
+              <span className="text-sky-600 font-bold">•</span> Define instantaneous velocity and acceleration as derivatives (gradients).
             </li>
             <li className="flex items-start gap-2">
-              <span className="text-cyan-400 font-bold">•</span> Solve constant-acceleration motion problems using the 4 kinematics (SUVAT) equations.
+              <span className="text-sky-600 font-bold">•</span> Solve constant-acceleration motion problems using the 4 kinematics (SUVAT) equations.
             </li>
             <li className="flex items-start gap-2">
-              <span className="text-cyan-400 font-bold">•</span> Analyse s-t, v-t, and a-t graphs using slope (gradient) and area under curves.
+              <span className="text-sky-600 font-bold">•</span> Analyse s-t, v-t, and a-t graphs using slope (gradient) and area under curves.
             </li>
             <li className="flex items-start gap-2">
-              <span className="text-cyan-400 font-bold">•</span> Describe 2D projectile trajectories using independent x and y components.
+              <span className="text-sky-600 font-bold">•</span> Describe 2D projectile trajectories using independent x and y components.
             </li>
             <li className="flex items-start gap-2">
-              <span className="text-cyan-400 font-bold">•</span> Explain qualitative fluid resistance forces and terminal speed behavior.
+              <span className="text-sky-600 font-bold">•</span> Explain qualitative fluid resistance forces and terminal speed behavior.
             </li>
           </ul>
         </div>
 
-        <div className="p-6 rounded-2xl glass-panel border border-slate-800 bg-slate-900/80 space-y-3">
-          <h3 className="text-base font-bold text-slate-100 flex items-center gap-2">
-            <Compass className="w-5 h-5 text-indigo-400" /> Guiding IB Questions
+        <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-xs space-y-3">
+          <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+            <Compass className="w-5 h-5 text-indigo-600" /> Guiding IB Questions
           </h3>
-          <div className="space-y-3 text-xs text-slate-300">
-            <div className="p-3 rounded-xl bg-slate-950 border border-slate-800">
-              <p className="font-bold text-indigo-300">1. Which equations describe the motion of an object?</p>
-              <p className="text-slate-400 mt-1">Understanding when constant velocity vs constant acceleration formulas apply.</p>
+          <div className="space-y-3 text-xs text-slate-700">
+            <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+              <p className="font-bold text-indigo-800">1. Which equations describe the motion of an object?</p>
+              <p className="text-slate-600 mt-1">Understanding when constant velocity vs constant acceleration formulas apply.</p>
             </div>
-            <div className="p-3 rounded-xl bg-slate-950 border border-slate-800">
-              <p className="font-bold text-indigo-300">2. How does graphical analysis help describe motion?</p>
-              <p className="text-slate-400 mt-1">Extracting rate of change (gradient) and accumulated change (area) visually.</p>
+            <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+              <p className="font-bold text-indigo-800">2. How does graphical analysis help describe motion?</p>
+              <p className="text-slate-600 mt-1">Extracting rate of change (gradient) and accumulated change (area) visually.</p>
             </div>
           </div>
         </div>
@@ -121,11 +119,11 @@ export const DisplacementDistanceView = () => {
   return (
     <div className="space-y-8 animate-fadeIn max-w-5xl mx-auto">
       <div>
-        <span className="text-xs font-mono font-bold text-cyan-400 uppercase tracking-widest">Module 02 — Section 1.1</span>
-        <h1 className="text-3xl font-extrabold text-slate-100 mt-1">
+        <span className="text-xs font-bold text-sky-700 uppercase tracking-widest">Module 02 — Section 1.1</span>
+        <h1 className="text-3xl font-extrabold text-slate-900 mt-1">
           Displacement & Distance
         </h1>
-        <p className="text-xs text-slate-400 mt-1">
+        <p className="text-xs text-slate-600 mt-1">
           Understanding 1D coordinate systems, position vectors, and the fundamental distinction between scalar distance and vector displacement.
         </p>
       </div>
@@ -177,11 +175,11 @@ export const SpeedVelocityView = () => {
   return (
     <div className="space-y-8 animate-fadeIn max-w-5xl mx-auto">
       <div>
-        <span className="text-xs font-mono font-bold text-cyan-400 uppercase tracking-widest">Module 03 — Section 1.1</span>
-        <h1 className="text-3xl font-extrabold text-slate-100 mt-1">
+        <span className="text-xs font-bold text-sky-700 uppercase tracking-widest">Module 03 — Section 1.1</span>
+        <h1 className="text-3xl font-extrabold text-slate-900 mt-1">
           Speed & Velocity
         </h1>
-        <p className="text-xs text-slate-400 mt-1">
+        <p className="text-xs text-slate-600 mt-1">
           Distinguishing average speed from average velocity, uniform motion equations, and area under velocity-time graphs.
         </p>
       </div>
@@ -259,11 +257,11 @@ export const AccelerationView = () => {
   return (
     <div className="space-y-8 animate-fadeIn max-w-5xl mx-auto">
       <div>
-        <span className="text-xs font-mono font-bold text-amber-400 uppercase tracking-widest">Module 04 — Section 1.2</span>
-        <h1 className="text-3xl font-extrabold text-slate-100 mt-1">
+        <span className="text-xs font-bold text-amber-700 uppercase tracking-widest">Module 04 — Section 1.2</span>
+        <h1 className="text-3xl font-extrabold text-slate-900 mt-1">
           Acceleration & Rate of Change of Velocity
         </h1>
-        <p className="text-xs text-slate-400 mt-1">
+        <p className="text-xs text-slate-600 mt-1">
           Defining average vs instantaneous acceleration, gradient of velocity-time curves, and positive vs negative acceleration.
         </p>
       </div>
@@ -325,11 +323,11 @@ export const KinematicsEquationsView = () => {
   return (
     <div className="space-y-8 animate-fadeIn max-w-5xl mx-auto">
       <div>
-        <span className="text-xs font-mono font-bold text-amber-400 uppercase tracking-widest">Module 05 — Section 1.2</span>
-        <h1 className="text-3xl font-extrabold text-slate-100 mt-1">
+        <span className="text-xs font-bold text-amber-700 uppercase tracking-widest">Module 05 — Section 1.2</span>
+        <h1 className="text-3xl font-extrabold text-slate-900 mt-1">
           Kinematics Equations & Free Fall
         </h1>
-        <p className="text-xs text-slate-400 mt-1">
+        <p className="text-xs text-slate-600 mt-1">
           The four fundamental SUVAT equations for constant acceleration, equation selection tools, and vertical motion under gravity.
         </p>
       </div>
@@ -379,11 +377,11 @@ export const MotionGraphsView = () => {
   return (
     <div className="space-y-8 animate-fadeIn max-w-5xl mx-auto">
       <div>
-        <span className="text-xs font-mono font-bold text-indigo-400 uppercase tracking-widest">Module 06 — Section 1.3</span>
-        <h1 className="text-3xl font-extrabold text-slate-100 mt-1">
+        <span className="text-xs font-bold text-indigo-700 uppercase tracking-widest">Module 06 — Section 1.3</span>
+        <h1 className="text-3xl font-extrabold text-slate-900 mt-1">
           Motion Graphs & Graph Translation Studio
         </h1>
-        <p className="text-xs text-slate-400 mt-1">
+        <p className="text-xs text-slate-600 mt-1">
           Analyzing gradients (derivatives) and areas (integrals) to convert between s-t, v-t, and a-t graphs.
         </p>
       </div>
@@ -413,11 +411,11 @@ export const ProjectileMotionView = () => {
   return (
     <div className="space-y-8 animate-fadeIn max-w-5xl mx-auto">
       <div>
-        <span className="text-xs font-mono font-bold text-cyan-400 uppercase tracking-widest">Module 07 — Section 1.4</span>
-        <h1 className="text-3xl font-extrabold text-slate-100 mt-1">
+        <span className="text-xs font-bold text-sky-700 uppercase tracking-widest">Module 07 — Section 1.4</span>
+        <h1 className="text-3xl font-extrabold text-slate-900 mt-1">
           Projectile Motion & Projectile Lab
         </h1>
-        <p className="text-xs text-slate-400 mt-1">
+        <p className="text-xs text-slate-600 mt-1">
           Analyzing 2D trajectories using independent horizontal (constant velocity) and vertical (free fall) motion components.
         </p>
       </div>
@@ -452,11 +450,11 @@ export const FluidResistanceView = () => {
   return (
     <div className="space-y-8 animate-fadeIn max-w-5xl mx-auto">
       <div>
-        <span className="text-xs font-mono font-bold text-rose-400 uppercase tracking-widest">Module 08 — Qualitative Physics</span>
-        <h1 className="text-3xl font-extrabold text-slate-100 mt-1">
+        <span className="text-xs font-bold text-rose-700 uppercase tracking-widest">Module 08 — Qualitative Physics</span>
+        <h1 className="text-3xl font-extrabold text-slate-900 mt-1">
           Fluid Resistance & Terminal Speed
         </h1>
-        <p className="text-xs text-slate-400 mt-1">
+        <p className="text-xs text-slate-600 mt-1">
           Linear (F = kv) and quadratic (F = kv²) drag forces, terminal velocity equilibrium, and asymmetric projectile paths.
         </p>
       </div>
@@ -477,11 +475,11 @@ export const MotionInvestigatorView = () => {
   return (
     <div className="space-y-8 animate-fadeIn max-w-5xl mx-auto">
       <div>
-        <span className="text-xs font-mono font-bold text-violet-400 uppercase tracking-widest">Module 09 — Data Inquiry</span>
-        <h1 className="text-3xl font-extrabold text-slate-100 mt-1">
+        <span className="text-xs font-bold text-violet-700 uppercase tracking-widest">Module 09 — Data Inquiry</span>
+        <h1 className="text-3xl font-extrabold text-slate-900 mt-1">
           Motion Investigator
         </h1>
-        <p className="text-xs text-slate-400 mt-1">
+        <p className="text-xs text-slate-600 mt-1">
           Mini-lab for inferring qualitative motion features directly from graph curves and data before calculating.
         </p>
       </div>
@@ -498,11 +496,11 @@ export const PracticeBankView = () => {
   return (
     <div className="space-y-8 animate-fadeIn max-w-5xl mx-auto">
       <div>
-        <span className="text-xs font-mono font-bold text-cyan-400 uppercase tracking-widest">Module 10 — Practice Suite</span>
-        <h1 className="text-3xl font-extrabold text-slate-100 mt-1">
+        <span className="text-xs font-bold text-sky-700 uppercase tracking-widest">Module 10 — Practice Suite</span>
+        <h1 className="text-3xl font-extrabold text-slate-900 mt-1">
           Complete Practice Bank
         </h1>
-        <p className="text-xs text-slate-400 mt-1">
+        <p className="text-xs text-slate-600 mt-1">
           Comprehensive IB Physics practice bank categorized by topic with full worked calculations.
         </p>
       </div>
@@ -519,11 +517,11 @@ export const MotionMissionView = () => {
   return (
     <div className="space-y-8 animate-fadeIn max-w-5xl mx-auto">
       <div>
-        <span className="text-xs font-mono font-bold text-cyan-400 uppercase tracking-widest">Module 11 — Final Challenge</span>
-        <h1 className="text-3xl font-extrabold text-slate-100 mt-1">
+        <span className="text-xs font-bold text-sky-700 uppercase tracking-widest">Module 11 — Final Challenge</span>
+        <h1 className="text-3xl font-extrabold text-slate-900 mt-1">
           The Motion Mission
         </h1>
-        <p className="text-xs text-slate-400 mt-1">
+        <p className="text-xs text-slate-600 mt-1">
           Integrated 10-stage end-of-chapter assessment testing your complete mastery of Kinematics.
         </p>
       </div>
@@ -540,11 +538,11 @@ export const ReflectionView = () => {
   return (
     <div className="space-y-8 animate-fadeIn max-w-5xl mx-auto">
       <div>
-        <span className="text-xs font-mono font-bold text-emerald-400 uppercase tracking-widest">Module 12 — Evaluation</span>
-        <h1 className="text-3xl font-extrabold text-slate-100 mt-1">
+        <span className="text-xs font-bold text-emerald-700 uppercase tracking-widest">Module 12 — Evaluation</span>
+        <h1 className="text-3xl font-extrabold text-slate-900 mt-1">
           Self-Assessment & Chapter Reflection
         </h1>
-        <p className="text-xs text-slate-400 mt-1">
+        <p className="text-xs text-slate-600 mt-1">
           Interactive syllabus objective checklist and deep conceptual reflection prompts.
         </p>
       </div>

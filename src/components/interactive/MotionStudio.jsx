@@ -107,10 +107,10 @@ export const MotionStudio = () => {
     const currentY = Math.max(padding, Math.min(height - padding, mapY(currentYVal)));
 
     return (
-      <div className="p-3 rounded-xl bg-slate-950/90 border border-slate-800 shadow-inner flex flex-col justify-between">
+      <div className="p-3 rounded-xl bg-white border border-slate-200 shadow-xs flex flex-col justify-between">
         <div className="flex items-center justify-between text-xs mb-1">
-          <span className="font-bold text-slate-300 uppercase tracking-wider">{title}</span>
-          <span className={`font-mono font-bold ${colorClass}`}>
+          <span className="font-bold text-slate-700 uppercase tracking-wider">{title}</span>
+          <span className={`font-semibold ${colorClass}`}>
             {currentYVal.toFixed(1)} {unit}
           </span>
         </div>
@@ -122,19 +122,19 @@ export const MotionStudio = () => {
               y1={mapY(0)}
               x2={width - padding}
               y2={mapY(0)}
-              stroke="#334155"
+              stroke="#cbd5e1"
               strokeDasharray="4 4"
             />
           )}
           {/* Grid lines */}
-          <line x1={padding} y1={padding} x2={padding} y2={height - padding} stroke="#334155" strokeWidth="1.5" />
-          <line x1={padding} y1={height - padding} x2={width - padding} y2={height - padding} stroke="#334155" strokeWidth="1.5" />
+          <line x1={padding} y1={padding} x2={padding} y2={height - padding} stroke="#cbd5e1" strokeWidth="1.5" />
+          <line x1={padding} y1={height - padding} x2={width - padding} y2={height - padding} stroke="#cbd5e1" strokeWidth="1.5" />
 
           {/* Curve */}
           <path d={pathD} fill="none" stroke="currentColor" strokeWidth="2.5" className={colorClass} />
 
           {/* Current scrubber dot */}
-          <circle cx={currentX} cy={currentY} r="5" className={`fill-slate-950 ${colorClass}`} stroke="currentColor" strokeWidth="3" />
+          <circle cx={currentX} cy={currentY} r="5" className={`fill-white ${colorClass}`} stroke="currentColor" strokeWidth="3" />
         </svg>
       </div>
     );
@@ -146,21 +146,21 @@ export const MotionStudio = () => {
   const carPercent = Math.max(0, Math.min(100, ((position - trackMin) / (trackMax - trackMin)) * 100));
 
   return (
-    <div className="my-8 p-6 rounded-3xl glass-panel border border-cyan-500/40 bg-slate-950/90 shadow-2xl space-y-6">
+    <div className="my-8 p-6 rounded-3xl bg-white border border-sky-200 shadow-xs space-y-6">
       {/* Header */}
-      <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-800 pb-4">
+      <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-200 pb-4">
         <div>
-          <div className="flex items-center gap-2 text-cyan-400 text-xs font-bold uppercase tracking-widest mb-1">
+          <div className="flex items-center gap-2 text-sky-600 text-xs font-bold uppercase tracking-widest mb-1">
             <Activity className="w-4 h-4" /> Signature Feature #1
           </div>
-          <h2 className="text-2xl font-extrabold text-slate-100">MOTION STUDIO</h2>
-          <p className="text-xs text-slate-400">
+          <h2 className="text-2xl font-extrabold text-slate-900">MOTION STUDIO</h2>
+          <p className="text-xs text-slate-600">
             Control object motion in real-time. See position, velocity, acceleration, and matching graphs update simultaneously.
           </p>
         </div>
 
         {/* Presets */}
-        <div className="flex items-center gap-1.5 bg-slate-900 p-1.5 rounded-xl border border-slate-800">
+        <div className="flex items-center gap-1.5 bg-slate-100 p-1.5 rounded-xl border border-slate-200">
           {[
             { id: 'uniform', label: 'Constant Velocity' },
             { id: 'accelerated', label: 'Speeding Up' },
@@ -172,8 +172,8 @@ export const MotionStudio = () => {
               onClick={() => handlePresetChange(p.id)}
               className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
                 preset === p.id
-                  ? 'bg-cyan-500 text-slate-950 shadow-md shadow-cyan-500/20'
-                  : 'text-slate-400 hover:text-slate-200'
+                  ? 'bg-sky-600 text-white shadow-xs'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200'
               }`}
             >
               {p.label}
@@ -183,23 +183,23 @@ export const MotionStudio = () => {
       </div>
 
       {/* Physical Motion Visualization Track */}
-      <div className="p-5 rounded-2xl bg-gradient-to-r from-slate-900 via-slate-950 to-slate-900 border border-slate-800 shadow-inner relative overflow-hidden">
-        <div className="flex items-center justify-between text-xs text-slate-400 mb-2">
-          <span>Number Line Axis (x-axis)</span>
-          <span className="font-mono text-cyan-400">t = {time.toFixed(2)} s</span>
+      <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 shadow-xs relative overflow-hidden">
+        <div className="flex items-center justify-between text-xs text-slate-600 mb-2">
+          <span className="font-semibold">Number Line Axis (x-axis)</span>
+          <span className="font-semibold text-sky-700">t = {time.toFixed(2)} s</span>
         </div>
 
         {/* Number line track */}
         <div className="relative h-20 my-2 flex items-center">
-          <div className="absolute inset-x-0 h-2 bg-slate-800 rounded-full" />
+          <div className="absolute inset-x-0 h-2 bg-slate-200 rounded-full" />
           
           {/* Tick marks */}
           {[-50, -25, 0, 25, 50, 75, 100, 125, 150].map((val) => {
             const pct = ((val - trackMin) / (trackMax - trackMin)) * 100;
             return (
               <div key={val} className="absolute flex flex-col items-center" style={{ left: `${pct}%` }}>
-                <div className={`w-0.5 h-3 ${val === 0 ? 'bg-cyan-400 h-5' : 'bg-slate-700'}`} />
-                <span className="text-[10px] font-mono text-slate-500 mt-1">{val}m</span>
+                <div className={`w-0.5 h-3 ${val === 0 ? 'bg-sky-600 h-5' : 'bg-slate-400'}`} />
+                <span className="text-[10px] font-semibold text-slate-500 mt-1">{val}m</span>
               </div>
             );
           })}
@@ -210,20 +210,20 @@ export const MotionStudio = () => {
             style={{ left: `${carPercent}%` }}
           >
             {/* Vector arrow indicator */}
-            <div className="text-cyan-400 flex items-center mb-1 animate-pulse">
-              <span className="text-[10px] font-mono font-bold mr-1">v = {velocity.toFixed(1)}m/s</span>
-              <span className={`transform transition-transform ${velocity < 0 ? 'rotate-180 text-rose-400' : ''}`}>➔</span>
+            <div className="text-sky-600 flex items-center mb-1">
+              <span className="text-[10px] font-bold mr-1">v = {velocity.toFixed(1)}m/s</span>
+              <span className={`transform transition-transform ${velocity < 0 ? 'rotate-180 text-rose-600' : ''}`}>➔</span>
             </div>
 
             {/* Car Icon / Circle */}
             <div className="relative">
-              <div className={`w-9 h-9 rounded-full flex items-center justify-center text-lg shadow-lg border-2 ${
-                velocity >= 0 ? 'bg-cyan-500 border-cyan-300 text-slate-950 shadow-cyan-500/50' : 'bg-rose-500 border-rose-300 text-slate-950 shadow-rose-500/50'
+              <div className={`w-9 h-9 rounded-full flex items-center justify-center text-lg shadow-md border-2 ${
+                velocity >= 0 ? 'bg-sky-500 border-sky-300 text-white' : 'bg-rose-500 border-rose-300 text-white'
               }`}>
                 🏎️
               </div>
             </div>
-            <span className="text-[11px] font-bold font-mono text-slate-200 mt-1">
+            <span className="text-[11px] font-bold text-slate-800 mt-1">
               x = {position.toFixed(1)}m
             </span>
           </div>
@@ -231,11 +231,11 @@ export const MotionStudio = () => {
       </div>
 
       {/* Control Sliders */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4 rounded-2xl bg-slate-900/60 border border-slate-800">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-200">
         <div>
-          <div className="flex justify-between text-xs font-semibold text-slate-300 mb-1">
+          <div className="flex justify-between text-xs font-semibold text-slate-700 mb-1">
             <span>Initial Position (<MathInline math="s_i" />)</span>
-            <span className="font-mono text-cyan-400">{initialPosition} m</span>
+            <span className="font-bold text-sky-700">{initialPosition} m</span>
           </div>
           <input
             type="range"
@@ -246,14 +246,14 @@ export const MotionStudio = () => {
               setInitialPosition(parseFloat(e.target.value));
               setTime(0);
             }}
-            className="w-full accent-cyan-400 bg-slate-800"
+            className="w-full accent-sky-600 bg-slate-200"
           />
         </div>
 
         <div>
-          <div className="flex justify-between text-xs font-semibold text-slate-300 mb-1">
+          <div className="flex justify-between text-xs font-semibold text-slate-700 mb-1">
             <span>Initial Velocity (<MathInline math="u" />)</span>
-            <span className="font-mono text-cyan-400">{initialVelocity} m/s</span>
+            <span className="font-bold text-sky-700">{initialVelocity} m/s</span>
           </div>
           <input
             type="range"
@@ -264,14 +264,14 @@ export const MotionStudio = () => {
               setInitialVelocity(parseFloat(e.target.value));
               setTime(0);
             }}
-            className="w-full accent-cyan-400 bg-slate-800"
+            className="w-full accent-sky-600 bg-slate-200"
           />
         </div>
 
         <div>
-          <div className="flex justify-between text-xs font-semibold text-slate-300 mb-1">
+          <div className="flex justify-between text-xs font-semibold text-slate-700 mb-1">
             <span>Acceleration (<MathInline math="a" />)</span>
-            <span className="font-mono text-amber-400">{acceleration} m/s²</span>
+            <span className="font-bold text-amber-700">{acceleration} m/s²</span>
           </div>
           <input
             type="range"
@@ -283,31 +283,31 @@ export const MotionStudio = () => {
               setAcceleration(parseFloat(e.target.value));
               setTime(0);
             }}
-            className="w-full accent-amber-400 bg-slate-800"
+            className="w-full accent-amber-600 bg-slate-200"
           />
         </div>
       </div>
 
       {/* Playback Controls & Time Scrubber */}
-      <div className="flex flex-wrap items-center justify-between gap-4 p-4 rounded-2xl bg-slate-900 border border-slate-800">
+      <div className="flex flex-wrap items-center justify-between gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-200">
         <div className="flex items-center gap-3">
           <button
             onClick={() => setIsPlaying(!isPlaying)}
-            className="px-5 py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs flex items-center gap-2 transition-all shadow-lg shadow-cyan-500/20 active:scale-95"
+            className="px-5 py-2.5 rounded-xl bg-sky-600 hover:bg-sky-700 text-white font-bold text-xs flex items-center gap-2 transition-all shadow-xs active:scale-95"
           >
             {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
             {isPlaying ? 'Pause Motion' : 'Start Motion'}
           </button>
           <button
             onClick={handleReset}
-            className="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold text-xs flex items-center gap-2 transition-colors"
+            className="px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs flex items-center gap-2 transition-colors border border-slate-200"
           >
             <RotateCcw className="w-4 h-4" /> Reset Time
           </button>
         </div>
 
         <div className="flex-1 max-w-md flex items-center gap-3">
-          <span className="text-xs font-mono text-slate-400">Scrub t:</span>
+          <span className="text-xs font-semibold text-slate-600">Scrub t:</span>
           <input
             type="range"
             min="0"
@@ -318,26 +318,26 @@ export const MotionStudio = () => {
               setIsPlaying(false);
               setTime(parseFloat(e.target.value));
             }}
-            className="w-full accent-cyan-400 bg-slate-800"
+            className="w-full accent-sky-600 bg-slate-200"
           />
-          <span className="text-xs font-mono font-bold text-cyan-400 w-12">{time.toFixed(1)}s</span>
+          <span className="text-xs font-bold text-sky-700 w-12">{time.toFixed(1)}s</span>
         </div>
       </div>
 
       {/* Synchronized Live Motion Graphs (s-t, v-t, a-t) */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {renderSvgGraph('position', 'Position-Time (s-t)', 'm', 'text-cyan-400', -60, 160)}
-        {renderSvgGraph('velocity', 'Velocity-Time (v-t)', 'm/s', 'text-indigo-400', -40, 60)}
-        {renderSvgGraph('acceleration', 'Acceleration-Time (a-t)', 'm/s²', 'text-amber-400', -12, 12)}
+        {renderSvgGraph('position', 'Position-Time (s-t)', 'm', 'text-sky-600', -60, 160)}
+        {renderSvgGraph('velocity', 'Velocity-Time (v-t)', 'm/s', 'text-indigo-600', -40, 60)}
+        {renderSvgGraph('acceleration', 'Acceleration-Time (a-t)', 'm/s²', 'text-amber-600', -12, 12)}
       </div>
 
       {/* Formula Connection Banner */}
-      <div className="p-4 rounded-xl bg-cyan-950/30 border border-cyan-500/20 text-xs text-cyan-200 flex items-center gap-3">
-        <Info className="w-5 h-5 text-cyan-400 flex-shrink-0" />
+      <div className="p-4 rounded-xl bg-sky-50 border border-sky-200 text-xs text-sky-900 flex items-center gap-3">
+        <Info className="w-5 h-5 text-sky-600 flex-shrink-0" />
         <div>
           <span className="font-bold">Active Kinematics Formula: </span>
           <MathInline math={`s(t) = ${initialPosition} + (${initialVelocity})t + \\frac{1}{2}(${acceleration})t^2`} />
-          <span className="ml-2 font-mono text-slate-400">➔ Instantaneous Position at t={time.toFixed(1)}s is {position.toFixed(1)}m</span>
+          <span className="ml-2 font-semibold text-slate-700">➔ Instantaneous Position at t={time.toFixed(1)}s is {position.toFixed(1)}m</span>
         </div>
       </div>
     </div>

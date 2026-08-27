@@ -16,7 +16,7 @@ export const MathInline = ({ math, className = "" }) => {
 
   return (
     <span 
-      className={`inline-math text-cyan-300 font-medium px-1 ${className}`}
+      className={`inline-math text-sky-700 font-semibold px-1 ${className}`}
       dangerouslySetInnerHTML={{ __html: html }}
     />
   );
@@ -37,7 +37,7 @@ export const MathBlock = ({ math, className = "" }) => {
 
   return (
     <div 
-      className={`my-3 py-2 px-4 rounded-xl bg-slate-900/80 border border-slate-800 text-cyan-200 shadow-inner overflow-x-auto ${className}`}
+      className={`my-3 py-2.5 px-4 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 overflow-x-auto shadow-xs ${className}`}
       dangerouslySetInnerHTML={{ __html: html }}
     />
   );

@@ -59,7 +59,7 @@ export function AppContent() {
   };
 
   return (
-    <div className="min-h-screen bg-[#090d16] text-slate-100 font-sans flex flex-col lg:flex-row">
+    <div className="min-h-screen bg-slate-50 text-slate-900 font-sans flex flex-col lg:flex-row">
       {/* Sidebar Navigation */}
       <Sidebar
         activeModule={activeModule}

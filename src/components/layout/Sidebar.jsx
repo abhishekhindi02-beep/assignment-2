@@ -45,46 +45,46 @@ export const Sidebar = ({ activeModule, setActiveModule, mobileOpen, setMobileOp
       {mobileOpen && (
         <div
           onClick={() => setMobileOpen(false)}
-          className="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-40 lg:hidden"
+          className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-40 lg:hidden"
         />
       )}
 
       {/* Sidebar Drawer */}
       <aside
-        className={`fixed top-0 left-0 bottom-0 w-72 bg-slate-950/95 border-r border-slate-800/80 z-50 flex flex-col justify-between transition-transform duration-300 lg:translate-x-0 ${
-          mobileOpen ? 'translate-x-0 shadow-2xl' : '-translate-x-full'
+        className={`fixed top-0 left-0 bottom-0 w-72 bg-white border-r border-slate-200 z-50 flex flex-col justify-between transition-transform duration-300 lg:translate-x-0 ${
+          mobileOpen ? 'translate-x-0 shadow-xl' : '-translate-x-full'
         }`}
       >
         {/* Brand Header */}
-        <div className="p-5 border-b border-slate-800/80 flex items-center justify-between">
+        <div className="p-5 border-b border-slate-200 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center font-black text-slate-950 text-lg shadow-lg shadow-cyan-500/20">
+            <div className="w-9 h-9 rounded-xl bg-sky-500 text-white flex items-center justify-center font-black text-lg shadow-sm">
               K
             </div>
             <div>
-              <h1 className="text-base font-extrabold text-slate-100 tracking-tight leading-none">
+              <h1 className="text-base font-extrabold text-slate-900 tracking-tight leading-none">
                 KINEMATICS LAB
               </h1>
-              <p className="text-[10px] text-cyan-400 font-mono mt-0.5">IB Physics 7th Edition</p>
+              <p className="text-[11px] text-sky-600 font-semibold mt-0.5">IB Physics 7th Edition</p>
             </div>
           </div>
           <button
             onClick={() => setMobileOpen(false)}
-            className="lg:hidden p-1.5 text-slate-400 hover:text-slate-200"
+            className="lg:hidden p-1.5 text-slate-500 hover:text-slate-800"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
         {/* Progress Tracker */}
-        <div className="px-5 py-3 border-b border-slate-800/60 bg-slate-900/40">
+        <div className="px-5 py-3.5 border-b border-slate-200 bg-slate-50">
           <div className="flex justify-between items-center text-xs mb-1.5">
-            <span className="font-bold text-slate-300">Chapter Progress</span>
-            <span className="font-mono text-cyan-400 font-bold">{progressPercent}%</span>
+            <span className="font-semibold text-slate-700">Chapter Progress</span>
+            <span className="font-semibold text-sky-600">{progressPercent}%</span>
           </div>
-          <div className="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+          <div className="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
             <div
-              className="bg-gradient-to-r from-cyan-500 to-blue-500 h-full transition-all duration-300"
+              className="bg-sky-500 h-full transition-all duration-300 rounded-full"
               style={{ width: `${progressPercent}%` }}
             />
           </div>
@@ -101,19 +101,19 @@ export const Sidebar = ({ activeModule, setActiveModule, mobileOpen, setMobileOp
               <button
                 key={mod.id}
                 onClick={() => handleSelect(mod.id)}
-                className={`w-full p-2.5 rounded-xl text-left text-xs font-semibold flex items-center justify-between transition-all ${
+                className={`w-full p-2.5 rounded-xl text-left text-xs flex items-center justify-between transition-all ${
                   isActive
-                    ? 'bg-gradient-to-r from-cyan-500/20 to-blue-600/20 text-cyan-300 border border-cyan-500/40 shadow-lg shadow-cyan-500/10'
-                    : 'text-slate-400 hover:bg-slate-900 hover:text-slate-200'
+                    ? 'bg-sky-50 text-sky-800 font-semibold border border-sky-200 shadow-xs'
+                    : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900 font-medium'
                 }`}
               >
                 <div className="flex items-center gap-2.5 truncate">
-                  <span className="font-mono text-[10px] text-slate-500 font-bold">{mod.num}</span>
-                  <Icon className={`w-4 h-4 flex-shrink-0 ${isActive ? 'text-cyan-400' : 'text-slate-500'}`} />
+                  <span className="text-[11px] text-slate-400 font-semibold">{mod.num}</span>
+                  <Icon className={`w-4 h-4 flex-shrink-0 ${isActive ? 'text-sky-600' : 'text-slate-400'}`} />
                   <span className="truncate">{mod.title}</span>
                 </div>
                 {isCompleted && (
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 flex-shrink-0" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" />
                 )}
               </button>
             );
@@ -121,7 +121,7 @@ export const Sidebar = ({ activeModule, setActiveModule, mobileOpen, setMobileOp
         </nav>
 
         {/* Sidebar Footer Tagline */}
-        <div className="p-4 border-t border-slate-800/80 bg-slate-900/30 text-[11px] text-slate-400 text-center">
+        <div className="p-4 border-t border-slate-200 bg-slate-50 text-[11px] text-slate-500 text-center font-medium">
           "See motion. Measure motion. Understand motion."
         </div>
       </aside>

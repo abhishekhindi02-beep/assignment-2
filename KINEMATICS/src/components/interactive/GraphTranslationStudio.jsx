@@ -95,10 +95,10 @@ export const GraphTranslationStudio = () => {
     const curY = mapY(currentVal);
 
     return (
-      <div className="p-4 rounded-2xl bg-slate-950/90 border border-slate-800 shadow-inner flex flex-col justify-between">
+      <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-xs flex flex-col justify-between">
         <div className="flex items-center justify-between text-xs mb-2">
-          <span className="font-bold text-slate-200 uppercase tracking-wider">{title}</span>
-          <span className={`font-mono font-bold ${color}`}>
+          <span className="font-bold text-slate-800 uppercase tracking-wider">{title}</span>
+          <span className={`font-semibold ${color}`}>
             {currentVal.toFixed(2)} {unit}
           </span>
         </div>
@@ -106,13 +106,13 @@ export const GraphTranslationStudio = () => {
         <svg viewBox={`0 0 ${width} ${height}`} className="w-full h-28 overflow-visible">
           {/* Shaded Area under v-t graph */}
           {showArea && areaPathD && (
-            <path d={areaPathD} fill="rgba(6, 182, 212, 0.2)" stroke="none" />
+            <path d={areaPathD} fill="rgba(14, 165, 233, 0.15)" stroke="none" />
           )}
 
           {/* Axes */}
-          <line x1={padding} y1={mapY(0)} x2={width - padding} y2={mapY(0)} stroke="#334155" strokeDasharray="3 3" />
-          <line x1={padding} y1={padding} x2={padding} y2={height - padding} stroke="#334155" strokeWidth="1.5" />
-          <line x1={padding} y1={height - padding} x2={width - padding} y2={height - padding} stroke="#334155" strokeWidth="1.5" />
+          <line x1={padding} y1={mapY(0)} x2={width - padding} y2={mapY(0)} stroke="#cbd5e1" strokeDasharray="3 3" />
+          <line x1={padding} y1={padding} x2={padding} y2={height - padding} stroke="#cbd5e1" strokeWidth="1.5" />
+          <line x1={padding} y1={height - padding} x2={width - padding} y2={height - padding} stroke="#cbd5e1" strokeWidth="1.5" />
 
           {/* Curve */}
           <path d={pathD} fill="none" stroke="currentColor" strokeWidth="2.5" className={color} />
@@ -123,35 +123,35 @@ export const GraphTranslationStudio = () => {
           )}
 
           {/* Scrubber vertical line */}
-          <line x1={curX} y1={padding} x2={curX} y2={height - padding} stroke="#64748b" strokeWidth="1" strokeDasharray="2 2" />
+          <line x1={curX} y1={padding} x2={curX} y2={height - padding} stroke="#94a3b8" strokeWidth="1" strokeDasharray="2 2" />
 
           {/* Scrubber Dot */}
-          <circle cx={curX} cy={curY} r="5" className={`fill-slate-950 ${color}`} stroke="currentColor" strokeWidth="3" />
+          <circle cx={curX} cy={curY} r="5" className={`fill-white ${color}`} stroke="currentColor" strokeWidth="3" />
         </svg>
       </div>
     );
   };
 
   return (
-    <div className="my-8 p-6 rounded-3xl glass-panel border border-indigo-500/40 bg-slate-950/90 shadow-2xl space-y-6">
+    <div className="my-8 p-6 rounded-3xl bg-white border border-sky-200 shadow-xs space-y-6">
       {/* Header */}
-      <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-800 pb-4">
+      <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-200 pb-4">
         <div>
-          <div className="flex items-center gap-2 text-indigo-400 text-xs font-bold uppercase tracking-widest mb-1">
+          <div className="flex items-center gap-2 text-indigo-600 text-xs font-bold uppercase tracking-widest mb-1">
             <TrendingUp className="w-4 h-4" /> Signature Feature #2
           </div>
-          <h2 className="text-2xl font-extrabold text-slate-100">GRAPH TRANSLATION STUDIO</h2>
-          <p className="text-xs text-slate-400">
+          <h2 className="text-2xl font-extrabold text-slate-900">GRAPH TRANSLATION STUDIO</h2>
+          <p className="text-xs text-slate-600">
             See how the slope (gradient) and area under curves interconvert position, velocity, and acceleration graphs.
           </p>
         </div>
 
         {/* Motion preset selection */}
-        <div className="flex items-center gap-2 bg-slate-900 p-1.5 rounded-xl border border-slate-800">
+        <div className="flex items-center gap-2 bg-slate-100 p-1.5 rounded-xl border border-slate-200">
           <button
             onClick={() => setMotionType('quadratic')}
             className={`px-3 py-1.5 rounded-lg text-xs font-semibold ${
-              motionType === 'quadratic' ? 'bg-indigo-600 text-white shadow-md' : 'text-slate-400 hover:text-slate-200'
+              motionType === 'quadratic' ? 'bg-indigo-600 text-white shadow-xs' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200'
             }`}
           >
             Constant Accel (Parabola s-t)
@@ -159,7 +159,7 @@ export const GraphTranslationStudio = () => {
           <button
             onClick={() => setMotionType('cubic')}
             className={`px-3 py-1.5 rounded-lg text-xs font-semibold ${
-              motionType === 'cubic' ? 'bg-indigo-600 text-white shadow-md' : 'text-slate-400 hover:text-slate-200'
+              motionType === 'cubic' ? 'bg-indigo-600 text-white shadow-xs' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200'
             }`}
           >
             Changing Accel (Cubic s-t)
@@ -168,8 +168,8 @@ export const GraphTranslationStudio = () => {
       </div>
 
       {/* Time Scrubber */}
-      <div className="p-4 rounded-2xl bg-slate-900 border border-slate-800 flex items-center gap-4">
-        <span className="text-xs font-bold uppercase tracking-wider text-slate-300">Scrub Time t:</span>
+      <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 flex items-center gap-4">
+        <span className="text-xs font-bold uppercase tracking-wider text-slate-700">Scrub Time t:</span>
         <input
           type="range"
           min="0"
@@ -177,39 +177,39 @@ export const GraphTranslationStudio = () => {
           step="0.1"
           value={time}
           onChange={(e) => setTime(parseFloat(e.target.value))}
-          className="w-full accent-indigo-500 bg-slate-800"
+          className="w-full accent-indigo-600 bg-slate-200"
         />
-        <span className="text-xs font-mono font-bold text-indigo-400 w-16">{time.toFixed(1)} s</span>
+        <span className="text-xs font-bold text-indigo-700 w-16">{time.toFixed(1)} s</span>
       </div>
 
       {/* 3 Synchronized Graph Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {renderSingleGraph('position', '1. Position-Time (s-t)', 'm', 'text-cyan-400', -5, 35, true, false)}
-        {renderSingleGraph('velocity', '2. Velocity-Time (v-t)', 'm/s', 'text-indigo-400', -5, 15, false, true)}
-        {renderSingleGraph('acceleration', '3. Acceleration-Time (a-t)', 'm/s²', 'text-amber-400', -8, 8, false, false)}
+        {renderSingleGraph('position', '1. Position-Time (s-t)', 'm', 'text-sky-600', -5, 35, true, false)}
+        {renderSingleGraph('velocity', '2. Velocity-Time (v-t)', 'm/s', 'text-indigo-600', -5, 15, false, true)}
+        {renderSingleGraph('acceleration', '3. Acceleration-Time (a-t)', 'm/s²', 'text-amber-600', -8, 8, false, false)}
       </div>
 
       {/* Mathematical Calculus / Gradient & Area Relationship Banner */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="p-4 rounded-2xl bg-slate-900/80 border border-indigo-500/20 space-y-2">
-          <div className="text-xs font-bold text-indigo-400 uppercase tracking-wider flex items-center gap-1.5">
+        <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+          <div className="text-xs font-bold text-indigo-700 uppercase tracking-wider flex items-center gap-1.5">
             <Layers className="w-4 h-4" /> Gradient (Slope) Interpretation
           </div>
-          <div className="text-xs text-slate-300 leading-relaxed">
-            • <span className="font-bold text-cyan-300">Gradient of s-t graph</span> = Instantaneous Velocity <MathInline math="v = \\lim_{\\Delta t \\to 0}\\frac{\\Delta s}{\\Delta t}" />
+          <div className="text-xs text-slate-700 leading-relaxed">
+            • <span className="font-bold text-sky-700">Gradient of s-t graph</span> = Instantaneous Velocity <MathInline math="v = \\lim_{\\Delta t \\to 0}\\frac{\\Delta s}{\\Delta t}" />
             <br />
-            • At <MathInline math={`t = ${time.toFixed(1)}s`} />, tangent line slope on s-t graph is exactly <span className="font-mono text-indigo-300 font-bold">{current.v.toFixed(2)} m/s</span>.
+            • At <MathInline math={`t = ${time.toFixed(1)}s`} />, tangent line slope on s-t graph is exactly <span className="text-indigo-700 font-bold">{current.v.toFixed(2)} m/s</span>.
           </div>
         </div>
 
-        <div className="p-4 rounded-2xl bg-slate-900/80 border border-cyan-500/20 space-y-2">
-          <div className="text-xs font-bold text-cyan-400 uppercase tracking-wider flex items-center gap-1.5">
+        <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+          <div className="text-xs font-bold text-sky-700 uppercase tracking-wider flex items-center gap-1.5">
             <TrendingUp className="w-4 h-4" /> Area Under Curve Interpretation
           </div>
-          <div className="text-xs text-slate-300 leading-relaxed">
-            • <span className="font-bold text-indigo-300">Area under v-t graph</span> = Accumulated Displacement <MathInline math="\\Delta s = \\text{Area}" />
+          <div className="text-xs text-slate-700 leading-relaxed">
+            • <span className="font-bold text-indigo-700">Area under v-t graph</span> = Accumulated Displacement <MathInline math="\\Delta s = \\text{Area}" />
             <br />
-            • Shaded cyan area under v-t from t=0 to {time.toFixed(1)}s equals <span className="font-mono text-cyan-300 font-bold">{current.s.toFixed(2)} m</span>.
+            • Shaded area under v-t from t=0 to {time.toFixed(1)}s equals <span className="text-sky-700 font-bold">{current.s.toFixed(2)} m</span>.
           </div>
         </div>
       </div>

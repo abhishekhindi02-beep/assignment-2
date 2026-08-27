@@ -32,10 +32,10 @@ export const SelfAssessment = () => {
   const [activeReflection, setActiveReflection] = useState(null);
 
   return (
-    <div className="my-8 p-6 rounded-3xl glass-panel border border-emerald-500/40 bg-slate-950/90 shadow-2xl space-y-8">
+    <div className="my-8 p-6 rounded-3xl bg-white border border-emerald-200 shadow-xs space-y-8">
       {/* Self Assessment Checklist */}
       <div className="space-y-4">
-        <div className="flex items-center gap-2 text-emerald-400 text-xs font-bold uppercase tracking-widest border-b border-slate-800 pb-3">
+        <div className="flex items-center gap-2 text-emerald-700 text-xs font-bold uppercase tracking-widest border-b border-slate-200 pb-3">
           <CheckSquare className="w-5 h-5" /> Self-Evaluation Checklist
         </div>
 
@@ -44,15 +44,15 @@ export const SelfAssessment = () => {
             const currentRating = progress.selfAssessment[item.id] || 'not_yet';
 
             return (
-              <div key={item.id} className="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div key={item.id} className="p-4 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                 <div className="space-y-1">
-                  <span className="text-[10px] font-mono font-bold text-emerald-400 bg-emerald-950/40 px-2 py-0.5 rounded border border-emerald-500/20">
+                  <span className="text-[10px] font-semibold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
                     Section {item.section}
                   </span>
-                  <p className="text-xs text-slate-200 font-medium">{item.label}</p>
+                  <p className="text-xs text-slate-800 font-semibold">{item.label}</p>
                 </div>
 
-                <div className="flex items-center gap-1.5 bg-slate-950 p-1 rounded-xl border border-slate-800">
+                <div className="flex items-center gap-1.5 bg-slate-100 p-1 rounded-xl border border-slate-200">
                   {[
                     { id: 'not_yet', label: 'Not Yet' },
                     { id: 'nearly', label: 'Nearly There' },
@@ -64,11 +64,11 @@ export const SelfAssessment = () => {
                       className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
                         currentRating === r.id
                           ? r.id === 'ready'
-                            ? 'bg-emerald-500 text-slate-950 shadow-md'
+                            ? 'bg-emerald-600 text-white shadow-xs'
                             : r.id === 'nearly'
-                            ? 'bg-amber-500 text-slate-950 shadow-md'
-                            : 'bg-rose-500 text-slate-950 shadow-md'
-                          : 'text-slate-500 hover:text-slate-300'
+                            ? 'bg-amber-600 text-white shadow-xs'
+                            : 'bg-rose-600 text-white shadow-xs'
+                          : 'text-slate-500 hover:text-slate-800'
                       }`}
                     >
                       {r.label}
@@ -82,8 +82,8 @@ export const SelfAssessment = () => {
       </div>
 
       {/* Interactive Reflection Section */}
-      <div className="space-y-4 pt-4 border-t border-slate-800">
-        <div className="flex items-center gap-2 text-cyan-400 text-xs font-bold uppercase tracking-widest">
+      <div className="space-y-4 pt-4 border-t border-slate-200">
+        <div className="flex items-center gap-2 text-sky-700 text-xs font-bold uppercase tracking-widest">
           <MessageSquare className="w-5 h-5" /> Chapter Reflection & Deep Conceptual Review
         </div>
 
@@ -92,17 +92,17 @@ export const SelfAssessment = () => {
             const isOpen = activeReflection === idx;
 
             return (
-              <div key={idx} className="p-4 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-2">
+              <div key={idx} className="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
                 <button
                   onClick={() => setActiveReflection(isOpen ? null : idx)}
-                  className="w-full text-left font-semibold text-xs text-slate-200 hover:text-cyan-300 flex items-center justify-between gap-2"
+                  className="w-full text-left font-bold text-xs text-slate-900 hover:text-sky-700 flex items-center justify-between gap-2"
                 >
                   <span>{p.q}</span>
-                  <span className="text-cyan-400 font-bold">{isOpen ? '−' : '+'}</span>
+                  <span className="text-sky-700 font-bold">{isOpen ? '−' : '+'}</span>
                 </button>
 
                 {isOpen && (
-                  <p className="text-xs text-slate-300 leading-relaxed pt-2 border-t border-slate-900 animate-fadeIn">
+                  <p className="text-xs text-slate-700 leading-relaxed pt-2 border-t border-slate-200 animate-fadeIn">
                     {p.a}
                   </p>
                 )}

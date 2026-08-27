@@ -25,41 +25,41 @@ export const ConceptCheck = ({ id, question, options, correctIndex, explanation 
   };
 
   return (
-    <div className="my-6 p-5 rounded-2xl glass-panel border border-cyan-500/30 bg-slate-900/90 shadow-xl space-y-4">
-      <div className="flex items-center justify-between border-b border-slate-800 pb-2">
-        <span className="text-xs font-bold uppercase tracking-wider text-cyan-400 flex items-center gap-1.5">
+    <div className="my-6 p-5 rounded-2xl bg-white border border-sky-200 shadow-xs space-y-4">
+      <div className="flex items-center justify-between border-b border-slate-200 pb-2">
+        <span className="text-xs font-bold uppercase tracking-wider text-sky-700 flex items-center gap-1.5">
           <HelpCircle className="w-4 h-4" /> Check Yourself
         </span>
         {submitted && (
-          <button onClick={handleReset} className="text-xs text-slate-400 hover:text-slate-200 flex items-center gap-1">
+          <button onClick={handleReset} className="text-xs text-slate-500 hover:text-slate-800 flex items-center gap-1">
             <RefreshCw className="w-3 h-3" /> Retry
           </button>
         )}
       </div>
 
-      <div className="text-sm font-semibold text-slate-100">{question}</div>
+      <div className="text-sm font-bold text-slate-900">{question}</div>
 
       <div className="space-y-2">
         {options.map((opt, idx) => {
           const isSel = selected === idx;
           const isCorr = idx === correctIndex;
 
-          let btnClass = "border-slate-800 bg-slate-950 hover:border-slate-700 text-slate-300";
-          if (isSel) btnClass = "border-cyan-500 bg-cyan-950/40 text-cyan-200 font-bold";
+          let btnClass = "border-slate-200 bg-white hover:border-slate-300 text-slate-700 font-medium";
+          if (isSel) btnClass = "border-sky-500 bg-sky-50 text-sky-900 font-bold";
           if (submitted) {
-            if (isCorr) btnClass = "border-emerald-500 bg-emerald-950/40 text-emerald-200 font-bold";
-            else if (isSel && !isCorr) btnClass = "border-rose-500 bg-rose-950/40 text-rose-200";
+            if (isCorr) btnClass = "border-emerald-500 bg-emerald-50 text-emerald-900 font-bold";
+            else if (isSel && !isCorr) btnClass = "border-rose-500 bg-rose-50 text-rose-900 font-medium";
           }
 
           return (
             <button
               key={idx}
               onClick={() => handleSelect(idx)}
-              className={`w-full p-3 rounded-xl border text-left text-xs transition-all flex items-center justify-between ${btnClass}`}
+              className={`w-full p-3.5 rounded-xl border text-left text-xs transition-all flex items-center justify-between ${btnClass}`}
             >
               <span>{opt}</span>
-              {submitted && isCorr && <CheckCircle className="w-4 h-4 text-emerald-400 flex-shrink-0" />}
-              {submitted && isSel && !isCorr && <XCircle className="w-4 h-4 text-rose-400 flex-shrink-0" />}
+              {submitted && isCorr && <CheckCircle className="w-4 h-4 text-emerald-600 flex-shrink-0" />}
+              {submitted && isSel && !isCorr && <XCircle className="w-4 h-4 text-rose-600 flex-shrink-0" />}
             </button>
           );
         })}
@@ -69,15 +69,15 @@ export const ConceptCheck = ({ id, question, options, correctIndex, explanation 
         <button
           onClick={handleSubmit}
           disabled={selected === null}
-          className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${
-            selected !== null ? 'bg-cyan-500 hover:bg-cyan-400 text-slate-950 shadow-md' : 'bg-slate-800 text-slate-600 cursor-not-allowed'
+          className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all ${
+            selected !== null ? 'bg-sky-600 hover:bg-sky-700 text-white shadow-xs' : 'bg-slate-200 text-slate-400 cursor-not-allowed'
           }`}
         >
           Check Answer
         </button>
       ) : (
-        <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-300 animate-fadeIn">
-          <span className="font-bold text-cyan-400">Explanation: </span>
+        <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-700 animate-fadeIn">
+          <span className="font-bold text-sky-700">Explanation: </span>
           {explanation}
         </div>
       )}

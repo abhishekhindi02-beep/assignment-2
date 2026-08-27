@@ -61,10 +61,10 @@ export const DragTerminalLab = () => {
     const curY = Math.max(padding, Math.min(height - padding, mapY(current[type])));
 
     return (
-      <div className="p-4 rounded-2xl bg-slate-950/90 border border-slate-800 shadow-inner flex flex-col justify-between">
+      <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-xs flex flex-col justify-between">
         <div className="flex items-center justify-between text-xs mb-1">
-          <span className="font-bold text-slate-300 uppercase tracking-wider">{title}</span>
-          <span className={`font-mono font-bold ${colorClass}`}>
+          <span className="font-bold text-slate-800 uppercase tracking-wider">{title}</span>
+          <span className={`font-semibold ${colorClass}`}>
             {current[type].toFixed(2)} {unit}
           </span>
         </div>
@@ -82,42 +82,42 @@ export const DragTerminalLab = () => {
           )}
 
           {/* Grid lines */}
-          <line x1={padding} y1={height - padding} x2={width - padding} y2={height - padding} stroke="#334155" strokeWidth="1.5" />
-          <line x1={padding} y1={padding} x2={padding} y2={height - padding} stroke="#334155" strokeWidth="1.5" />
+          <line x1={padding} y1={height - padding} x2={width - padding} y2={height - padding} stroke="#cbd5e1" strokeWidth="1.5" />
+          <line x1={padding} y1={padding} x2={padding} y2={height - padding} stroke="#cbd5e1" strokeWidth="1.5" />
 
           {/* Curve */}
           <path d={pathD} fill="none" stroke="currentColor" strokeWidth="2.5" className={colorClass} />
 
           {/* Scrubber marker dot */}
-          <circle cx={curX} cy={curY} r="5" className={`fill-slate-950 ${colorClass}`} stroke="currentColor" strokeWidth="3" />
+          <circle cx={curX} cy={curY} r="5" className={`fill-white ${colorClass}`} stroke="currentColor" strokeWidth="3" />
         </svg>
       </div>
     );
   };
 
   return (
-    <div className="my-8 p-6 rounded-3xl glass-panel border border-rose-500/40 bg-slate-950/90 shadow-2xl space-y-6">
+    <div className="my-8 p-6 rounded-3xl bg-white border border-rose-200 shadow-xs space-y-6">
       {/* Header */}
-      <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-800 pb-4">
+      <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-200 pb-4">
         <div>
-          <div className="flex items-center gap-2 text-rose-400 text-xs font-bold uppercase tracking-widest mb-1">
+          <div className="flex items-center gap-2 text-rose-600 text-xs font-bold uppercase tracking-widest mb-1">
             <Wind className="w-4 h-4" /> Signature Feature #5
           </div>
-          <h2 className="text-2xl font-extrabold text-slate-100">DRAG & TERMINAL SPEED LAB</h2>
-          <p className="text-xs text-slate-400">
+          <h2 className="text-2xl font-extrabold text-slate-900">DRAG & TERMINAL SPEED LAB</h2>
+          <p className="text-xs text-slate-600">
             Observe how fluid resistance balances weight force (<MathInline math="F_{\text{drag}} = mg" />) causing acceleration to reach zero while speed approaches terminal velocity.
           </p>
         </div>
 
         {/* Drag Model Toggle */}
-        <div className="flex items-center gap-2 bg-slate-900 p-1.5 rounded-xl border border-slate-800">
+        <div className="flex items-center gap-2 bg-slate-100 p-1.5 rounded-xl border border-slate-200">
           <button
             onClick={() => {
               setDragPower(1);
               setTime(0);
             }}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold ${
-              dragPower === 1 ? 'bg-rose-500 text-slate-950 shadow-md' : 'text-slate-400 hover:text-slate-200'
+            className={`px-3 py-1.5 rounded-lg text-xs font-semibold ${
+              dragPower === 1 ? 'bg-rose-600 text-white shadow-xs' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200'
             }`}
           >
             Low Speed (<MathInline math="F = kv" />)
@@ -127,8 +127,8 @@ export const DragTerminalLab = () => {
               setDragPower(2);
               setTime(0);
             }}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold ${
-              dragPower === 2 ? 'bg-rose-500 text-slate-950 shadow-md' : 'text-slate-400 hover:text-slate-200'
+            className={`px-3 py-1.5 rounded-lg text-xs font-semibold ${
+              dragPower === 2 ? 'bg-rose-600 text-white shadow-xs' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200'
             }`}
           >
             High Speed (<MathInline math="F = kv^2" />)
@@ -139,24 +139,24 @@ export const DragTerminalLab = () => {
       {/* Main Falling Animation & Force Vectors */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Falling Skydiver/Sphere Tube */}
-        <div className="p-4 rounded-2xl bg-gradient-to-b from-slate-950 to-slate-900 border border-slate-800 flex flex-col items-center justify-between relative min-h-[300px]">
-          <div className="text-xs font-bold uppercase text-slate-400 flex items-center gap-1.5">
-            <Gauge className="w-4 h-4 text-rose-400" /> Freefall with Air Drag Tube
+        <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col items-center justify-between relative min-h-[300px]">
+          <div className="text-xs font-bold uppercase text-slate-700 flex items-center gap-1.5">
+            <Gauge className="w-4 h-4 text-rose-600" /> Freefall with Air Drag Tube
           </div>
 
           <div className="w-full flex justify-around items-center h-52 relative">
             {/* Air flow particle lines */}
-            <div className="absolute inset-y-0 inset-x-12 flex justify-between pointer-events-none opacity-30">
-              <div className="w-0.5 h-full bg-cyan-400/40 animate-pulse" />
-              <div className="w-0.5 h-full bg-cyan-400/40 animate-pulse" />
-              <div className="w-0.5 h-full bg-cyan-400/40 animate-pulse" />
+            <div className="absolute inset-y-0 inset-x-12 flex justify-between pointer-events-none opacity-40">
+              <div className="w-0.5 h-full bg-sky-400 animate-pulse" />
+              <div className="w-0.5 h-full bg-sky-400 animate-pulse" />
+              <div className="w-0.5 h-full bg-sky-400 animate-pulse" />
             </div>
 
             {/* Falling Object */}
             <div className="relative flex flex-col items-center">
               {/* Drag Force Vector (Upward Rose Arrow) */}
-              <div className="flex flex-col items-center text-rose-400">
-                <span className="text-[10px] font-mono font-bold">F_drag = {current.Fdrag.toFixed(1)} N</span>
+              <div className="flex flex-col items-center text-rose-600">
+                <span className="text-[10px] font-bold">F_drag = {current.Fdrag.toFixed(1)} N</span>
                 <span className="text-xs">▲</span>
                 <div
                   className="w-1 bg-rose-500 rounded-full transition-all"
@@ -165,38 +165,38 @@ export const DragTerminalLab = () => {
               </div>
 
               {/* Falling Object Circle */}
-              <div className="w-12 h-12 rounded-full bg-rose-500 border-2 border-rose-300 shadow-xl shadow-rose-500/40 flex items-center justify-center text-xl my-1 text-slate-950 font-bold">
+              <div className="w-12 h-12 rounded-full bg-rose-500 border-2 border-rose-300 shadow-md flex items-center justify-center text-xl my-1 text-white font-bold">
                 🪂
               </div>
 
               {/* Weight Force Vector (Downward Amber Arrow) */}
-              <div className="flex flex-col items-center text-amber-400">
-                <div className="w-1 h-10 bg-amber-400 rounded-full" />
+              <div className="flex flex-col items-center text-amber-700">
+                <div className="w-1 h-10 bg-amber-500 rounded-full" />
                 <span className="text-xs">▼</span>
-                <span className="text-[10px] font-mono font-bold">W = mg = {(mass * g).toFixed(1)} N</span>
+                <span className="text-[10px] font-bold">W = mg = {(mass * g).toFixed(1)} N</span>
               </div>
             </div>
           </div>
 
-          <div className="w-full p-2.5 rounded-xl bg-slate-950 border border-slate-800 text-center text-xs font-mono">
-            <span className="text-slate-400">Terminal Speed: </span>
-            <span className="text-rose-400 font-bold">{terminalSpeed.toFixed(1)} m/s</span>
+          <div className="w-full p-2.5 rounded-xl bg-white border border-slate-200 text-center text-xs">
+            <span className="text-slate-600 font-semibold">Terminal Speed: </span>
+            <span className="text-rose-700 font-bold">{terminalSpeed.toFixed(1)} m/s</span>
           </div>
         </div>
 
         {/* Live Graphs (v-t and a-t) */}
         <div className="space-y-4">
-          {renderDragGraph('v', 'Speed-Time (v-t)', 'm/s', 'text-rose-400', Math.max(35, terminalSpeed * 1.2))}
-          {renderDragGraph('a', 'Acceleration-Time (a-t)', 'm/s²', 'text-amber-400', 12)}
+          {renderDragGraph('v', 'Speed-Time (v-t)', 'm/s', 'text-rose-600', Math.max(35, terminalSpeed * 1.2))}
+          {renderDragGraph('a', 'Acceleration-Time (a-t)', 'm/s²', 'text-amber-600', 12)}
         </div>
       </div>
 
       {/* Control Sliders */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4 rounded-2xl bg-slate-900/60 border border-slate-800">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-200">
         <div>
-          <div className="flex justify-between text-xs font-semibold text-slate-300 mb-1">
+          <div className="flex justify-between text-xs font-semibold text-slate-700 mb-1">
             <span>Mass (<MathInline math="m" />)</span>
-            <span className="font-mono text-cyan-400">{mass} kg</span>
+            <span className="font-bold text-sky-700">{mass} kg</span>
           </div>
           <input
             type="range"
@@ -208,14 +208,14 @@ export const DragTerminalLab = () => {
               setMass(parseFloat(e.target.value));
               setTime(0);
             }}
-            className="w-full accent-cyan-400 bg-slate-800"
+            className="w-full accent-sky-600 bg-slate-200"
           />
         </div>
 
         <div>
-          <div className="flex justify-between text-xs font-semibold text-slate-300 mb-1">
+          <div className="flex justify-between text-xs font-semibold text-slate-700 mb-1">
             <span>Drag Constant (<MathInline math="k" />)</span>
-            <span className="font-mono text-rose-400">{dragK}</span>
+            <span className="font-bold text-rose-700">{dragK}</span>
           </div>
           <input
             type="range"
@@ -227,14 +227,14 @@ export const DragTerminalLab = () => {
               setDragK(parseFloat(e.target.value));
               setTime(0);
             }}
-            className="w-full accent-rose-400 bg-slate-800"
+            className="w-full accent-rose-600 bg-slate-200"
           />
         </div>
 
         <div>
-          <div className="flex justify-between text-xs font-semibold text-slate-300 mb-1">
+          <div className="flex justify-between text-xs font-semibold text-slate-700 mb-1">
             <span>Gravity (<MathInline math="g" />)</span>
-            <span className="font-mono text-amber-400">{g} m/s²</span>
+            <span className="font-bold text-amber-700">{g} m/s²</span>
           </div>
           <input
             type="range"
@@ -246,31 +246,31 @@ export const DragTerminalLab = () => {
               setG(parseFloat(e.target.value));
               setTime(0);
             }}
-            className="w-full accent-amber-400 bg-slate-800"
+            className="w-full accent-amber-600 bg-slate-200"
           />
         </div>
       </div>
 
       {/* Play Controls & Scrubber */}
-      <div className="flex flex-wrap items-center justify-between gap-4 p-4 rounded-2xl bg-slate-900 border border-slate-800">
+      <div className="flex flex-wrap items-center justify-between gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-200">
         <div className="flex items-center gap-3">
           <button
             onClick={() => setIsPlaying(!isPlaying)}
-            className="px-5 py-2.5 rounded-xl bg-rose-500 hover:bg-rose-400 text-slate-950 font-bold text-xs flex items-center gap-2 shadow-lg shadow-rose-500/20 active:scale-95"
+            className="px-5 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs flex items-center gap-2 shadow-xs active:scale-95"
           >
             {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
             {isPlaying ? 'Pause Drop' : 'Start Freefall'}
           </button>
           <button
             onClick={handleReset}
-            className="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold text-xs flex items-center gap-2"
+            className="px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs flex items-center gap-2 border border-slate-200"
           >
             <RotateCcw className="w-4 h-4" /> Reset
           </button>
         </div>
 
         <div className="flex-1 max-w-md flex items-center gap-3">
-          <span className="text-xs font-mono text-slate-400">Scrub t:</span>
+          <span className="text-xs font-semibold text-slate-600">Scrub t:</span>
           <input
             type="range"
             min="0"
@@ -281,17 +281,17 @@ export const DragTerminalLab = () => {
               setIsPlaying(false);
               setTime(parseFloat(e.target.value));
             }}
-            className="w-full accent-rose-400 bg-slate-800"
+            className="w-full accent-rose-600 bg-slate-200"
           />
-          <span className="text-xs font-mono font-bold text-rose-400 w-12">{time.toFixed(1)}s</span>
+          <span className="text-xs font-bold text-rose-700 w-12">{time.toFixed(1)}s</span>
         </div>
       </div>
 
       {/* Misconception Highlight Callout */}
-      <div className="p-4 rounded-2xl bg-rose-950/30 border border-rose-500/30 flex items-start gap-3 text-xs text-rose-200">
-        <AlertTriangle className="w-5 h-5 text-rose-400 flex-shrink-0 mt-0.5" />
+      <div className="p-4 rounded-2xl bg-rose-50 border border-rose-200 flex items-start gap-3 text-xs text-rose-900">
+        <AlertTriangle className="w-5 h-5 text-rose-600 flex-shrink-0 mt-0.5" />
         <div>
-          <span className="font-bold text-rose-400">CRITICAL CONCEPTUAL REMINDER: </span>
+          <span className="font-bold text-rose-700">CRITICAL CONCEPTUAL REMINDER: </span>
           When the falling object reaches terminal speed, acceleration becomes zero (<MathInline math="a = 0" />). <span className="underline">Zero acceleration does NOT mean the object stops moving!</span> It means the object continues falling at a constant, maximum terminal velocity <MathInline math={`v_T = \\frac{mg}{k} = ${terminalSpeed.toFixed(1)}\\text{ m/s}`} />.
         </div>
       </div>

@@ -5,11 +5,11 @@ export const Header = ({ onOpenMobile }) => {
   const { resetProgress } = useProgress();
 
   return (
-    <header className="sticky top-0 z-30 bg-slate-950/80 backdrop-blur-md border-b border-slate-800/80 px-4 py-3 flex items-center justify-between">
+    <header className="sticky top-0 z-30 bg-white/90 backdrop-blur-md border-b border-slate-200 px-4 py-3 flex items-center justify-between shadow-xs">
       <div className="flex items-center gap-3">
         <button
           onClick={onOpenMobile}
-          className="lg:hidden p-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-slate-100"
+          className="lg:hidden p-2 rounded-xl bg-slate-100 border border-slate-200 text-slate-700 hover:bg-slate-200 transition-colors"
           title="Open Menu"
         >
           <Menu className="w-5 h-5" />
@@ -17,11 +17,11 @@ export const Header = ({ onOpenMobile }) => {
 
         <div>
           <div className="flex items-center gap-2">
-            <span className="px-2 py-0.5 rounded-full bg-cyan-500/10 text-cyan-400 text-[10px] font-bold border border-cyan-500/20">
+            <span className="px-2.5 py-0.5 rounded-full bg-sky-50 text-sky-700 text-[11px] font-semibold border border-sky-200">
               Chapter 1 — Kinematics
             </span>
           </div>
-          <h2 className="text-sm font-bold text-slate-100 hidden sm:block">
+          <h2 className="text-sm font-bold text-slate-800 hidden sm:block mt-0.5">
             Interactive Physics Web Module
           </h2>
         </div>
@@ -31,7 +31,7 @@ export const Header = ({ onOpenMobile }) => {
       <div className="flex items-center gap-3">
         <button
           onClick={resetProgress}
-          className="px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-slate-200 text-xs font-semibold flex items-center gap-1.5 transition-colors"
+          className="px-3.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 border border-slate-200 text-slate-600 hover:text-slate-900 text-xs font-semibold flex items-center gap-1.5 transition-colors"
           title="Reset local learning progress"
         >
           <RotateCcw className="w-3.5 h-3.5" />

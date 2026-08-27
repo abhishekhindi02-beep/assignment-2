@@ -59,20 +59,20 @@ export const PracticeBank = () => {
     : questions.filter(q => q.category === selectedCategory);
 
   return (
-    <div className="my-8 p-6 rounded-3xl glass-panel border border-cyan-500/40 bg-slate-950/90 shadow-2xl space-y-6">
-      <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-800 pb-4">
+    <div className="my-8 p-6 rounded-3xl bg-white border border-sky-200 shadow-xs space-y-6">
+      <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-200 pb-4">
         <div>
-          <div className="flex items-center gap-2 text-cyan-400 text-xs font-bold uppercase tracking-widest mb-1">
+          <div className="flex items-center gap-2 text-sky-600 text-xs font-bold uppercase tracking-widest mb-1">
             <BookOpen className="w-4 h-4" /> Practice Suite
           </div>
-          <h2 className="text-2xl font-extrabold text-slate-100">CHAPTER PRACTICE BANK</h2>
-          <p className="text-xs text-slate-400">
+          <h2 className="text-2xl font-extrabold text-slate-900">CHAPTER PRACTICE BANK</h2>
+          <p className="text-xs text-slate-600">
             Categorized IB-style practice problems from basic foundations to multi-stage kinematics equations and projectiles.
           </p>
         </div>
 
         {/* Categories Filter */}
-        <div className="flex items-center gap-1.5 bg-slate-900 p-1.5 rounded-xl border border-slate-800 flex-wrap">
+        <div className="flex items-center gap-1.5 bg-slate-100 p-1.5 rounded-xl border border-slate-200 flex-wrap">
           {[
             { id: 'all', label: 'All Problems' },
             { id: 'foundations', label: 'Foundations' },
@@ -84,7 +84,7 @@ export const PracticeBank = () => {
               key={cat.id}
               onClick={() => setSelectedCategory(cat.id)}
               className={`px-3 py-1.5 rounded-lg text-xs font-semibold ${
-                selectedCategory === cat.id ? 'bg-cyan-500 text-slate-950 font-bold' : 'text-slate-400 hover:text-slate-200'
+                selectedCategory === cat.id ? 'bg-sky-600 text-white font-bold' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200'
               }`}
             >
               {cat.label}
@@ -99,31 +99,31 @@ export const PracticeBank = () => {
           const isExpanded = expandedId === q.id;
 
           return (
-            <div key={q.id} className="p-5 rounded-2xl bg-slate-900/90 border border-slate-800 shadow-md space-y-3">
+            <div key={q.id} className="p-5 rounded-2xl bg-slate-50 border border-slate-200 shadow-2xs space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase font-mono text-cyan-400 bg-cyan-950/40 px-2.5 py-0.5 rounded border border-cyan-500/20">
+                <span className="text-xs font-semibold text-sky-700 bg-sky-50 px-2.5 py-0.5 rounded border border-sky-200">
                   {q.categoryLabel}
                 </span>
-                <h3 className="text-sm font-bold text-slate-100 flex-1 ml-3">{q.title}</h3>
+                <h3 className="text-sm font-bold text-slate-900 flex-1 ml-3">{q.title}</h3>
               </div>
 
-              <p className="text-xs text-slate-300 leading-relaxed">{q.problem}</p>
+              <p className="text-xs text-slate-700 leading-relaxed">{q.problem}</p>
 
               <button
                 onClick={() => setExpandedId(isExpanded ? null : q.id)}
-                className="text-xs text-cyan-400 hover:text-cyan-300 font-bold flex items-center gap-1 transition-colors pt-1"
+                className="text-xs text-sky-600 hover:text-sky-800 font-bold flex items-center gap-1 transition-colors pt-1"
               >
                 {isExpanded ? 'Hide Solution' : 'Reveal Worked Solution'}
                 {isExpanded ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
               </button>
 
               {isExpanded && (
-                <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-3 animate-fadeIn">
-                  <div className="text-xs font-bold uppercase text-emerald-400 flex items-center gap-1">
+                <div className="p-4 rounded-xl bg-white border border-slate-200 space-y-3 animate-fadeIn">
+                  <div className="text-xs font-bold uppercase text-emerald-700 flex items-center gap-1">
                     <CheckCircle className="w-4 h-4" /> Worked Calculation
                   </div>
                   <MathBlock math={q.solutionMath} />
-                  <p className="text-xs text-slate-300 leading-relaxed pt-1 border-t border-slate-900">
+                  <p className="text-xs text-slate-600 leading-relaxed pt-1 border-t border-slate-200">
                     {q.explanation}
                   </p>
                 </div>

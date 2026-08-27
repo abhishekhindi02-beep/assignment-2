@@ -165,28 +165,28 @@ export const MotionMission = () => {
   };
 
   return (
-    <div className="my-8 p-6 rounded-3xl glass-panel border border-cyan-500/40 bg-slate-950/90 shadow-2xl space-y-6">
+    <div className="my-8 p-6 rounded-3xl bg-white border border-sky-200 shadow-xs space-y-6">
       {/* Header */}
-      <div className="flex items-center justify-between border-b border-slate-800 pb-4">
+      <div className="flex items-center justify-between border-b border-slate-200 pb-4">
         <div>
-          <div className="flex items-center gap-2 text-cyan-400 text-xs font-bold uppercase tracking-widest mb-1">
+          <div className="flex items-center gap-2 text-sky-600 text-xs font-bold uppercase tracking-widest mb-1">
             <Trophy className="w-4 h-4" /> Signature Feature #7
           </div>
-          <h2 className="text-2xl font-extrabold text-slate-100">THE MOTION MISSION</h2>
-          <p className="text-xs text-slate-400">
+          <h2 className="text-2xl font-extrabold text-slate-900">THE MOTION MISSION</h2>
+          <p className="text-xs text-slate-600">
             10-Stage integrated final challenge covering the complete Chapter 1 Kinematics curriculum.
           </p>
         </div>
 
         {!isFinished && (
           <div className="flex items-center gap-2">
-            <div className="w-32 bg-slate-800 rounded-full h-2.5 overflow-hidden">
+            <div className="w-32 bg-slate-200 rounded-full h-2.5 overflow-hidden">
               <div
-                className="bg-cyan-400 h-full transition-all"
+                className="bg-sky-600 h-full transition-all rounded-full"
                 style={{ width: `${((currentStage + 1) / stages.length) * 100}%` }}
               />
             </div>
-            <span className="text-xs font-mono text-cyan-400 font-bold">
+            <span className="text-xs font-bold text-sky-700">
               {currentStage + 1}/{stages.length}
             </span>
           </div>
@@ -196,26 +196,26 @@ export const MotionMission = () => {
       {!isFinished ? (
         <div className="space-y-6">
           {/* Stage Question Card */}
-          <div className="p-5 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-3">
-            <span className="text-xs font-mono font-bold text-cyan-400 uppercase tracking-wider">
+          <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
+            <span className="text-xs font-bold text-sky-700 uppercase tracking-wider">
               {currentData.title}
             </span>
-            <h3 className="text-base font-bold text-slate-100">{currentData.question}</h3>
+            <h3 className="text-base font-bold text-slate-900">{currentData.question}</h3>
 
             <div className="space-y-2 pt-2">
               {currentData.options.map((opt, idx) => {
                 const isSelected = selectedOption === idx;
                 const isCorrect = idx === currentData.correct;
 
-                let style = "border-slate-800 bg-slate-950 hover:border-slate-700 text-slate-300";
+                let style = "border-slate-200 bg-white hover:border-slate-300 text-slate-700 font-medium";
                 if (isSelected) {
-                  style = "border-cyan-500 bg-cyan-950/40 text-cyan-200 font-bold";
+                  style = "border-sky-500 bg-sky-50 text-sky-900 font-bold";
                 }
                 if (isSubmitted) {
                   if (isCorrect) {
-                    style = "border-emerald-500 bg-emerald-950/40 text-emerald-200 font-bold";
+                    style = "border-emerald-500 bg-emerald-50 text-emerald-900 font-bold";
                   } else if (isSelected && !isCorrect) {
-                    style = "border-rose-500 bg-rose-950/40 text-rose-200";
+                    style = "border-rose-500 bg-rose-50 text-rose-900 font-medium";
                   }
                 }
 
@@ -226,8 +226,8 @@ export const MotionMission = () => {
                     className={`w-full p-3.5 rounded-xl border text-left text-xs transition-all flex items-center justify-between gap-3 ${style}`}
                   >
                     <span>{opt}</span>
-                    {isSubmitted && isCorrect && <CheckCircle className="w-4 h-4 text-emerald-400 flex-shrink-0" />}
-                    {isSubmitted && isSelected && !isCorrect && <XCircle className="w-4 h-4 text-rose-400 flex-shrink-0" />}
+                    {isSubmitted && isCorrect && <CheckCircle className="w-4 h-4 text-emerald-600 flex-shrink-0" />}
+                    {isSubmitted && isSelected && !isCorrect && <XCircle className="w-4 h-4 text-rose-600 flex-shrink-0" />}
                   </button>
                 );
               })}
@@ -242,8 +242,8 @@ export const MotionMission = () => {
                 disabled={selectedOption === null}
                 className={`px-5 py-2.5 rounded-xl font-bold text-xs transition-all ${
                   selectedOption !== null
-                    ? 'bg-cyan-500 hover:bg-cyan-400 text-slate-950 shadow-lg shadow-cyan-500/20 active:scale-95'
-                    : 'bg-slate-800 text-slate-600 cursor-not-allowed'
+                    ? 'bg-sky-600 hover:bg-sky-700 text-white shadow-xs active:scale-95'
+                    : 'bg-slate-200 text-slate-400 cursor-not-allowed'
                 }`}
               >
                 Confirm Answer
@@ -251,7 +251,7 @@ export const MotionMission = () => {
             ) : (
               <button
                 onClick={handleNextStage}
-                className="px-5 py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs flex items-center gap-2 shadow-lg active:scale-95"
+                className="px-5 py-2.5 rounded-xl bg-sky-600 hover:bg-sky-700 text-white font-bold text-xs flex items-center gap-2 shadow-xs active:scale-95"
               >
                 {currentStage < stages.length - 1 ? 'Next Stage' : 'Complete Mission'} <ArrowRight className="w-4 h-4" />
               </button>
@@ -260,17 +260,17 @@ export const MotionMission = () => {
 
           {/* Explanation Modal */}
           {isSubmitted && (
-            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-300 space-y-1 animate-fadeIn">
-              <span className="font-bold text-cyan-400">Solution Analysis: </span>
+            <div className="p-4 rounded-xl bg-white border border-slate-200 text-xs text-slate-700 space-y-1 animate-fadeIn">
+              <span className="font-bold text-sky-700">Solution Analysis: </span>
               <span>{currentData.explanation}</span>
             </div>
           )}
         </div>
       ) : (
         /* Final Mission Completed Score Screen */
-        <div className="p-8 text-center space-y-6 bg-slate-900/80 rounded-2xl border border-cyan-500/30 animate-fadeIn">
-          <Award className="w-16 h-16 text-cyan-400 mx-auto animate-bounce" />
-          <h2 className="text-3xl font-extrabold text-slate-100">MOTION MISSION COMPLETED!</h2>
+        <div className="p-8 text-center space-y-6 bg-slate-50 rounded-2xl border border-sky-200 animate-fadeIn">
+          <Award className="w-16 h-16 text-sky-600 mx-auto animate-bounce" />
+          <h2 className="text-3xl font-extrabold text-slate-900">MOTION MISSION COMPLETED!</h2>
 
           {(() => {
             let finalScore = 0;
@@ -280,10 +280,10 @@ export const MotionMission = () => {
 
             return (
               <div className="space-y-2">
-                <div className="text-4xl font-black font-mono text-cyan-400">
+                <div className="text-4xl font-black text-sky-700">
                   {finalScore} / 100 PTS
                 </div>
-                <p className="text-sm text-slate-300">
+                <p className="text-sm text-slate-600">
                   {finalScore >= 80
                     ? "Exceptional physics mastery! You are fully exam-ready for Chapter 1 Kinematics."
                     : "Great effort! Review weak modules and attempt the mission again to reach 100%."}
@@ -294,7 +294,7 @@ export const MotionMission = () => {
 
           <button
             onClick={handleRestartMission}
-            className="px-6 py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs flex items-center gap-2 mx-auto shadow-lg shadow-cyan-500/20"
+            className="px-6 py-3 rounded-xl bg-sky-600 hover:bg-sky-700 text-white font-bold text-xs flex items-center gap-2 mx-auto shadow-xs"
           >
             <RotateCcw className="w-4 h-4" /> Re-attempt Motion Mission
           </button>

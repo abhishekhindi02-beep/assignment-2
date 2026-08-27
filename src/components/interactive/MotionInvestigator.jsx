@@ -73,50 +73,50 @@ export const MotionInvestigator = () => {
   };
 
   return (
-    <div className="my-8 p-6 rounded-3xl glass-panel border border-violet-500/40 bg-slate-950/90 shadow-2xl space-y-6">
-      <div className="flex items-center justify-between border-b border-slate-800 pb-4">
+    <div className="my-8 p-6 rounded-3xl bg-white border border-violet-200 shadow-xs space-y-6">
+      <div className="flex items-center justify-between border-b border-slate-200 pb-4">
         <div>
-          <div className="flex items-center gap-2 text-violet-400 text-xs font-bold uppercase tracking-widest mb-1">
+          <div className="flex items-center gap-2 text-violet-700 text-xs font-bold uppercase tracking-widest mb-1">
             <Search className="w-4 h-4" /> Signature Feature #6
           </div>
-          <h2 className="text-2xl font-extrabold text-slate-100">MOTION INVESTIGATOR</h2>
-          <p className="text-xs text-slate-400">
+          <h2 className="text-2xl font-extrabold text-slate-900">MOTION INVESTIGATOR</h2>
+          <p className="text-xs text-slate-600">
             Deduce physical motion properties directly from raw data and graph shapes before calculating.
           </p>
         </div>
-        <span className="text-xs font-mono font-bold text-violet-400 px-3 py-1 bg-violet-950/40 rounded-lg border border-violet-500/30">
+        <span className="text-xs font-bold text-violet-700 px-3 py-1 bg-violet-50 rounded-lg border border-violet-200">
           Case {currentCaseIndex + 1} of {cases.length}
         </span>
       </div>
 
       {/* Case Overview */}
-      <div className="p-5 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-4">
-        <h3 className="text-base font-bold text-slate-100">{currentCase.title}</h3>
-        <p className="text-xs text-slate-300 leading-relaxed">{currentCase.description}</p>
+      <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-4">
+        <h3 className="text-base font-bold text-slate-900">{currentCase.title}</h3>
+        <p className="text-xs text-slate-600 leading-relaxed">{currentCase.description}</p>
 
         {/* SVG Visualization for Case */}
-        <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-center">
+        <div className="p-4 rounded-xl bg-white border border-slate-200 flex items-center justify-center">
           <svg viewBox="0 0 300 120" className="w-full max-w-sm h-32">
-            <line x1="20" y1="100" x2="280" y2="100" stroke="#334155" strokeWidth="2" />
-            <line x1="20" y1="20" x2="20" y2="100" stroke="#334155" strokeWidth="2" />
+            <line x1="20" y1="100" x2="280" y2="100" stroke="#cbd5e1" strokeWidth="2" />
+            <line x1="20" y1="20" x2="20" y2="100" stroke="#cbd5e1" strokeWidth="2" />
 
             {currentCase.svgType === 'concave_down' && (
-              <path d="M 20 100 Q 150 20 280 40" fill="none" stroke="#a78bfa" strokeWidth="3" />
+              <path d="M 20 100 Q 150 20 280 40" fill="none" stroke="#7c3aed" strokeWidth="3" />
             )}
             {currentCase.svgType === 'vt_cross_zero' && (
-              <path d="M 20 20 L 280 100" fill="none" stroke="#a78bfa" strokeWidth="3" />
+              <path d="M 20 20 L 280 100" fill="none" stroke="#7c3aed" strokeWidth="3" />
             )}
             {currentCase.svgType === 'terminal_speed' && (
-              <path d="M 20 100 Q 80 40 280 40" fill="none" stroke="#a78bfa" strokeWidth="3" />
+              <path d="M 20 100 Q 80 40 280 40" fill="none" stroke="#7c3aed" strokeWidth="3" />
             )}
           </svg>
         </div>
       </div>
 
       {/* Interactive Question */}
-      <div className="p-5 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-4">
-        <h4 className="text-sm font-bold text-slate-200 flex items-center gap-2">
-          <HelpCircle className="w-4 h-4 text-violet-400" /> {currentCase.question}
+      <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-4">
+        <h4 className="text-sm font-bold text-slate-900 flex items-center gap-2">
+          <HelpCircle className="w-4 h-4 text-violet-700" /> {currentCase.question}
         </h4>
 
         <div className="space-y-2">
@@ -124,15 +124,15 @@ export const MotionInvestigator = () => {
             const isSelected = selectedAnswer === idx;
             const isCorrect = idx === currentCase.correctIndex;
 
-            let btnStyle = "border-slate-800 bg-slate-950 hover:border-slate-700 text-slate-300";
+            let btnStyle = "border-slate-200 bg-white hover:border-slate-300 text-slate-700 font-medium";
             if (isSelected) {
-              btnStyle = "border-violet-500 bg-violet-950/40 text-violet-200 font-bold";
+              btnStyle = "border-violet-500 bg-violet-50 text-violet-900 font-bold";
             }
             if (submitted) {
               if (isCorrect) {
-                btnStyle = "border-emerald-500 bg-emerald-950/40 text-emerald-200 font-bold";
+                btnStyle = "border-emerald-500 bg-emerald-50 text-emerald-900 font-bold";
               } else if (isSelected && !isCorrect) {
-                btnStyle = "border-rose-500 bg-rose-950/40 text-rose-200";
+                btnStyle = "border-rose-500 bg-rose-50 text-rose-900 font-medium";
               }
             }
 
@@ -140,11 +140,11 @@ export const MotionInvestigator = () => {
               <button
                 key={idx}
                 onClick={() => handleSelect(idx)}
-                className={`w-full p-3 rounded-xl border text-left text-xs transition-all flex items-center justify-between gap-3 ${btnStyle}`}
+                className={`w-full p-3.5 rounded-xl border text-left text-xs transition-all flex items-center justify-between gap-3 ${btnStyle}`}
               >
                 <span>{option}</span>
-                {submitted && isCorrect && <CheckCircle className="w-4 h-4 text-emerald-400 flex-shrink-0" />}
-                {submitted && isSelected && !isCorrect && <XCircle className="w-4 h-4 text-rose-400 flex-shrink-0" />}
+                {submitted && isCorrect && <CheckCircle className="w-4 h-4 text-emerald-600 flex-shrink-0" />}
+                {submitted && isSelected && !isCorrect && <XCircle className="w-4 h-4 text-rose-600 flex-shrink-0" />}
               </button>
             );
           })}
@@ -158,8 +158,8 @@ export const MotionInvestigator = () => {
               disabled={selectedAnswer === null}
               className={`px-5 py-2.5 rounded-xl font-bold text-xs transition-all ${
                 selectedAnswer !== null
-                  ? 'bg-violet-600 hover:bg-violet-500 text-white shadow-lg shadow-violet-500/20 active:scale-95'
-                  : 'bg-slate-800 text-slate-600 cursor-not-allowed'
+                  ? 'bg-violet-600 hover:bg-violet-700 text-white shadow-xs active:scale-95'
+                  : 'bg-slate-200 text-slate-400 cursor-not-allowed'
               }`}
             >
               Submit Inference
@@ -167,7 +167,7 @@ export const MotionInvestigator = () => {
           ) : (
             <button
               onClick={handleNext}
-              className="px-5 py-2.5 rounded-xl bg-violet-600 hover:bg-violet-500 text-white font-bold text-xs flex items-center gap-2 shadow-lg active:scale-95"
+              className="px-5 py-2.5 rounded-xl bg-violet-600 hover:bg-violet-700 text-white font-bold text-xs flex items-center gap-2 shadow-xs active:scale-95"
             >
               Next Case <ArrowRight className="w-4 h-4" />
             </button>
@@ -176,8 +176,8 @@ export const MotionInvestigator = () => {
 
         {/* Explanation Modal/Panel */}
         {submitted && (
-          <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-300 space-y-1 animate-fadeIn">
-            <span className="font-bold text-violet-400">Scientific Explanation: </span>
+          <div className="p-4 rounded-xl bg-white border border-slate-200 text-xs text-slate-700 space-y-1 animate-fadeIn">
+            <span className="font-bold text-violet-700">Scientific Explanation: </span>
             <span>{currentCase.explanation}</span>
           </div>
         )}
